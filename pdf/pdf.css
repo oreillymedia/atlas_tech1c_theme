@@ -1,32 +1,47 @@
-@import url('/usr/share/dcps/pdfrenderer/css/ah-default.css');
+@import url('/usr/local/app/orm-pdfrenderer/ah-default.css');
 
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, heigth */
-  margin: 54pt 0.75in 54pt 0.75in; /* white space around the page */
-  @bottom-left { /* footer area */
-    font-family: 'OpenSans-Regular', sans-serif;
-    font-size: 8pt;
-    text-align: left;
-    padding-top: 17pt;
-    margin-top: 0;
-    vertical-align: top;
-  }
-  @bottom-right { /* footer area */
-    font-family: 'OpenSans-Regular', sans-serif;
-    font-size: 8pt;
-    text-align: right;
-    padding-top: 17pt;
-    margin-top: 0;
-    vertical-align: top;
-  }
+  margin-top: 0.75in; /* white space around the page */
+  margin-bottom: 0.75in;
 }
 
 @page :left {
-
+  margin-left: 1.625in;
+  margin-right: 1in;
+  @bottom-left-corner {
+    font-family: SourceSansPro, sans-serif;
+    font-size: 9pt;
+    text-align: left;
+    margin-left: 0.375in;
+    margin-top: 5pt;
+  }
+  @top-left {
+    font-family: SourceSansPro, sans-serif;
+    font-size: 8pt;
+    text-align: left;
+    margin-left: -1.25in;
+    margin-top: 6pt;
+  }
 }
 
 @page :right {
-
+  margin-right: 1.625in;
+  margin-left: 1in;
+  @bottom-right-corner {
+    font-family: SourceSansPro, sans-serif;
+    font-size: 9pt;
+    text-align: right;
+    margin-top: 5pt;
+    margin-right: 0.375in;
+  }
+  @top-right {
+    font-family: SourceSansPro, sans-serif;
+    font-size: 8pt;
+    text-align: right;
+    margin-right: -1.25in;
+    margin-top: 6pt;
+  }
 }
 
 @page :blank { /* defining a truly blank master page */
@@ -51,10 +66,12 @@ section[data-type="sect3"] > h3 + p {
 }
 
 p, dd { /* general text styles */
-  font-family: 'Crimson-Roman', serif;
+  font-family: 'SourceSansPro', sans-serif;
   text-indent: 0.167in;
-  font-size: 11pt;
-  line-height: 14pt;
+  font-size: 9.5pt;
+  line-height: 13pt;
+  margin: 0;
+  text-align: justify;
 }
 
 /* global styles */
@@ -68,7 +85,9 @@ div[data-type="book"] {
 /* general inlines */
 
 a {
-  font-style: italic; /* links are italicized */
+  color: cmyk(0%,0%,0%,80%);
+  font-weight: bold;
+  text-decoration: none;
 }
 
 /* PDF bookmarks */
@@ -154,14 +173,6 @@ section[data-type="titlepage"] h2 {
 section[data-type="titlepage"] p.author, 
 section[data-type="titlepage"] p {
   font-family: 'Crimson-Roman', serif;
-}
-
-/* all information other than title, subtitle, and author floats to the bottom */
-
-section[data-type="titlepage"] p {
-  font-size: 11pt;
-  line-height: 14pt;
-  float: bottom;
 }
 
 /* styling and positioning for author names */
@@ -405,11 +416,11 @@ nav[data-type="toc"] li[data-type="foreword"] ol {
 section[data-type="preface"] > h1, 
 section[data-type="chapter"] > h1, 
 section[data-type="appendix"] > h1 {
-  font-family: 'OpenSans-CondBold', sans-serif;
-  font-size: 18pt;
+  font-family: 'Merriweather', serif;
   line-height: 22pt;
-  margin-bottom: 28pt;
-  text-align: center;
+  margin-bottom: 0.9in;
+  margin-top: 0.5in;
+  text-align: right;
 }
 
 section[data-type="preface"] > h1 {
@@ -476,35 +487,49 @@ section[data-type="sect3"] > h3 { /* C-level headings */
 
 /* prefaces */
 
+section[data-type="preface"] > h1 {
+  font-size: 16pt;
+}
+
+
 @page preface:first {
-  @bottom-left {
-    content: normal;
+  @bottom-right-corner {
+    content: counter(page, lower-roman);
+  }
+  @top-right {
+    content: none;
   }
 }
 
 @page preface:left {
-  @bottom-left {
-    content: counter(page, lower-roman);
-  }
-  @bottom-right {
+  @top-left {
     content: string(ChapterTitle);
+  }
+  @bottom-left-corner {
+    content: counter(page, lower-roman);
   }
 }
 
 @page preface:right {
-  @bottom-left {
-    content: string(SectionTitle);
+  @top-right {
+    content: string(ChapterTitle);
   }
-  @bottom-right {
+  @bottom-right-corner {
     content: counter(page, lower-roman);
   }
 }
 
 @page preface:blank { 
-  @bottom-left {
+  @bottom-left-corner {
     content: none;
   }
-  @bottom-right {
+  @bottom-right-corner {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+  @top-left {
     content: none;
   }
 }
@@ -546,34 +571,40 @@ div[data-type="part"] > h1:before {
 /* chapters */
 
 @page chapter:first {
-  @bottom-left {
-    content: normal;
+  @top-right {
+    content: none;
   }
 }
 
 @page chapter:left {
-  @bottom-left {
+  @bottom-left-corner {
     content: counter(page);
   }
-  @bottom-right {
-    content: "Chapter "counter(ChapterNumber)", "string(ChapterTitle);
+  @top-left {
+    content: "CHAPTER "counter(ChapterNumber)": "string(ChapterTitle);
   }
 }
 
 @page chapter:right {
-  @bottom-right {
+  @bottom-right-corner {
     content: counter(page);
   }
-  @bottom-left {
+  @top-right {
     content: string(SectionTitle);
   }
 }
 
 @page chapter:blank { 
-  @bottom-left {
+  @bottom-left-corner {
     content: none;
   }
-  @bottom-right {
+  @bottom-right-corner {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+  @top-left {
     content: none;
   }
 }
