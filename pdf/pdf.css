@@ -55,6 +55,7 @@
 
 /* general blocks */
 
+li > p,
 section[data-type="preface"] > h1 + p, 
 div[data-type="part"] > h1 + p, 
 section[data-type="chapter"] > h1 + p, 
@@ -72,12 +73,12 @@ p, dd { /* general text styles */
   line-height: 13pt;
   margin: 0;
   text-align: justify;
+  hyphens: auto;
 }
 
 /* global styles */
 
 div[data-type="book"] {
-  hyphens: auto;
   -ah-hyphenate-hyphenated-word: false;
   -ah-kerning-mode: pair;
 }
@@ -144,10 +145,11 @@ section[data-type="titlepage"] {
 
 section[data-type="halftitlepage"] h1, 
 section[data-type="titlepage"] h1 {
-  font-family: 'OpenSans-CondBold', sans-serif;
+  font-family: Merriweather, serif;
   border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
   margin-top: 96pt;
   padding-bottom: 4pt;
+  text-align: left;
 }
 
 section[data-type="halftitlepage"] h1 {
@@ -156,8 +158,9 @@ section[data-type="halftitlepage"] h1 {
 }
 
 section[data-type="titlepage"] h1 {
-  font-size: 21pt;
+  font-size: 20pt;
   line-height: 24pt;
+  font-weight: normal;
 }
 
 section[data-type="titlepage"] h2 {
@@ -170,23 +173,18 @@ section[data-type="titlepage"] h2 {
 
 /* titlepage text font */
 
-section[data-type="titlepage"] p.author, 
-section[data-type="titlepage"] p {
-  font-family: 'Crimson-Roman', serif;
-}
-
 /* styling and positioning for author names */
 
 section[data-type="titlepage"] div.author {
   margin-top: 82pt;
 }
 
-section[data-type="titlepage"] p.author {
-  font-size: 13pt;
-  line-height: 16pt;
-  margin-top: 0pt;
-  margin-bottom: 0pt;
-  float: none;
+section[data-type="titlepage"] h2[data-type="author"] {
+  font-family: Merriweather, serif;
+  font-size: 11pt;
+  text-align: left;
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* copyright page */
@@ -460,16 +458,18 @@ section[data-type="appendix"] > h1:before {
 /* section headings */
 
 section[data-type="sect1"] > h1 { /* A-level headings */
-  font-family: 'OpenSans-CondBold', sans-serif;
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
   font-size: 12pt;
   line-height: 14pt;
   margin-top: 18pt;
-  margin-bottom: 12pt;
+  margin-bottom: 14pt;
   string-set: SectionTitle self; /* A-heads are also displayed in chapter footers */
 }
 
 section[data-type="sect2"] > h2 { /* B-level headings */
-  font-family: 'OpenSans-Bold', sans-serif;
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
   font-size: 8.5pt;
   line-height: 12pt;
   margin-top: 12pt;
@@ -478,7 +478,8 @@ section[data-type="sect2"] > h2 { /* B-level headings */
 }
 
 section[data-type="sect3"] > h3 { /* C-level headings */
-  font-family: 'OpenSans-Semibold', sans-serif;
+  font-family: 'Merriweather', serif;
+  font-weight: normal;
   font-size: 9pt;
   line-height: 14pt;
   margin-top: 9pt;
@@ -489,8 +490,8 @@ section[data-type="sect3"] > h3 { /* C-level headings */
 
 section[data-type="preface"] > h1 {
   font-size: 16pt;
+  font-weight: normal;
 }
-
 
 @page preface:first {
   @bottom-right-corner {
