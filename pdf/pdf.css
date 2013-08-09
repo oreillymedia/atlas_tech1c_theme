@@ -475,6 +475,7 @@ h1, h2, h3, h4, h5, h6 {
 
 section[data-type="sect1"] > h1 { /* A-level headings */
   font-family: 'Merriweather', serif;
+  font-weight: bold;
   font-size: 12pt;
   line-height: 14pt;
   margin-top: 18pt;
