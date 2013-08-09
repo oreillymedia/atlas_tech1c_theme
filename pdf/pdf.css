@@ -4,6 +4,11 @@
   size: 7in 9.1875in; /* width, heigth */
   margin-top: 0.75in; /* white space around the page */
   margin-bottom: 0.75in;
+  @sidenote {
+    float: outside;
+    width: 1.1in;
+    clear: both;
+  }
 }
 
 head title { display: none; }
@@ -41,6 +46,7 @@ figure[data-type="cover"] img {
     margin-left: -1.25in;
     margin-top: 6pt;
   }
+  @sidenote { margin-left: -1.25in; } 
 }
 
 @page :right {
@@ -60,6 +66,7 @@ figure[data-type="cover"] img {
     margin-right: -1.25in;
     margin-top: 6pt;
   }
+  @sidenote { margin-right: -1.25in; } 
 }
 
 @page :blank { /* defining a truly blank master page */
@@ -73,7 +80,9 @@ figure[data-type="cover"] img {
 
 /* general blocks */
 
-li > p,
+li > p, dd p,
+section[data-type="titlepage"] p,
+section[data-type="copyright-page"] p,
 p[data-type="author"], p.author,
 section[data-type="preface"] > h1 + p, 
 div[data-type="part"] > h1 + p, 
@@ -221,7 +230,6 @@ section[data-type="copyright-page"] p {
 }
 
 section[data-type="copyright-page"] p.isbn {
-  margin: 24pt 0;
 }
 
 /* dedication */
@@ -440,23 +448,21 @@ section[data-type="appendix"] > h1 {
 }
 
 /* chapter and appendix headings include auto-numbering */
-section[data-type="chapter"] > h1:before, 
-section[data-type="appendix"] > h1:before {
-  font-family: 'OpenSans-Semibold', sans-serif;
-  font-size: 9pt;
-  text-transform: uppercase;
+section[data-type="chapter"] > h1:after, 
+section[data-type="appendix"] > h1:after {
+  font-size: 65pt;
+  font-family: 'SourceSansPro-ExtraLight', sans-serif;
+  margin-right: -0.9in;
+  margin-top: -0.53in;
   display: block;
-  text-align: center;
-  margin-top: 22pt;
-  margin-bottom: 34pt;
 }
 
-section[data-type="chapter"] > h1:before {
-  content: "Chapter " counter(ChapterNumber);
+section[data-type="chapter"] > h1:after {
+  content: counter(ChapterNumber);
 }
 
-section[data-type="appendix"] > h1:before {
-  content: "Appendix " counter(AppendixNumber, upper-alpha);
+section[data-type="appendix"] > h1:after {
+  content: counter(AppendixNumber, upper-alpha);
 }
 
 /* section headings */
@@ -812,16 +818,14 @@ aside p { /* sidebar text */
 /* admonitions */
 
 div[data-type="note"], div[data-type="warning"] { /* admonition containers */
-  -ah-float: outside;
-  margin-left: -89pt;
-  margin-right: -89pt;
-  border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
-  padding-top: 5pt;
-  width: 73pt;
-  page-break-inside: avoid;
+  -ah-float: outside page;
+  -ah-float-margin-y: 15pt;
   clear: both;
-  -ah-float-margin-y: 10pt;
-  -ah-float-float-margin-y: 10pt;
+  margin: 0.1in -1.25in 0 -1.25in;
+  padding-top: 5pt;
+  border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
+  width: 1.1in;
+  page-break-inside: avoid;
 }
 
 div[data-type="note"] p, div[data-type="warning"] p { /* admon text */
