@@ -18,7 +18,7 @@ figure[data-type="cover"] {
 }
 
 figure[data-type="cover"] img {
-  width: 100%;
+  max-width: 100%;
   position: fixed;
   left: 0;
   top: 0;
@@ -757,33 +757,47 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 
 /* figures */
 
-figure { /* figure containers */
-  margin-top: 13pt;
-  margin-bottom: 16pt;
-  padding: 0;
+figure {
+  column-count: 1;
+  margin: 26.64pt 0;
+  padding: 8.64pt 0;
   display: block;
+  width: 5.6in;
+  -ah-float: outside page skip; 
+  margin-left: -1.25in;
+  margin-right: -1.25in;
   page-break-inside: avoid;
-}
-
-figure img { /* figure images */
-  max-width: 100%;
-  margin: 0;
-}
-
-figcaption { /* figure captions */
-  font-family: 'OpenSans-Reguar', sans-serif;
-  font-size: 8.5pt;
-  line-height: 11pt;
   border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
-  padding-top: 4pt;
-  margin-top: 0pt;
-  display: block;
+  border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
 }
 
-figcaption:before { /* figure captions are auto-numbered via the following */
-  font-family: 'OpenSans-Semibold', sans-serif;
+figcaption {
+  text-align: left;
+  font-family: Merriweather, serif;
+  font-style: italic;
+  font-size: 7.5pt;
+  line-height: 10pt;
+  display: block;
+  -ah-float: outside column; 
+  margin-left: -1.25in;
+  margin-right: -1.25in;
+  max-width: 1in;
+  hyphens: none;
+}
+
+figcaption:before {
+  font-family: SourceSansPro-Black, sans-serif;
+  font-style: normal;
+  font-size: 8.5pt;
   counter-increment: FigureNumber;
-  content: "Figure " counter(ChapterNumber) "-" counter(FigureNumber) ". ";
+  content: "FIGURE " counter(ChapterNumber) "-" counter(FigureNumber) ". ";
+  display: block;
+  margin-bottom: 7.2pt;
+}
+
+figure img {
+  max-width: 4.25in;
+  margin: 0 auto;
 }
 
 /* sidebars */
@@ -850,7 +864,7 @@ div[data-type="warning"] h1 { /* admonition titles */
 /* code */
 
 pre, code { /* monospace font for both code blocks and inline code */
-  font-family: 'UbuntuMono-Regular', monospace;
+  font-family: 'UbuntuMono', monospace;
 }
 
 pre { /* code blocks */
@@ -863,6 +877,8 @@ code { /* inline code */
   font-size: 9.5pt;
   line-height: 14pt;
 }
+
+code em { font-style: italic; }
 
 table pre { /* code blocks within tables */
   text-indent: 0;
