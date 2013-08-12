@@ -70,12 +70,10 @@ figure[data-type="cover"] img {
 }
 
 @page :blank { /* defining a truly blank master page */
-  @bottom-left {
-	  content: none;
-	}
-	@bottom-right {
-		content: none;
-	}
+  @bottom-left-corner { content: none; }
+  @bottom-right-corner { content: none; }
+  @top-right { content: none; }
+  @top-left { content: none; }
 }
 
 /* general blocks */
@@ -802,32 +800,33 @@ figure img {
 
 /* sidebars */
 
-aside { /* sidebar containers */
-  border: 0.5pt solid cmyk(0%,0%,0%,100%);
-  padding: 18pt 0.1667in 12pt 0.1667in;
-  margin: 14pt 0 14pt 0;
+aside[data-type="sidebar"] { /* sidebar containers */
+  background-color: cmyk(0%,0%,0%,15%);
+  -ah-float: outside page skip;
+  margin: 0.25in -1.625in;
+  padding: 0.25in 1.625in;
+  width: 4.375in;
 }
 
 aside h5 { /* sidebar titles */
-  font-family: 'OpenSans-CondBold', sans-serif;
+  font-family: SourceSansPro-Bold, sans-serif;
   font-size: 11pt;
   line-height: 13pt;
   text-align: center;
-  margin: 0;
-  padding: 0;
+  text-transform: uppercase;
+  margin-bottom: 0.2in;
+  margin-top: 0;
 }
 
 aside h6 { /* sidebar subtitles */
-  font-family: 'Crimson-Bold', serif;
-  font-size: 9.5pt;
-  line-height: 12pt;
 }
 
 aside p { /* sidebar text */
-  font-size: 9.5pt;
-  line-height: 12pt;
+  font-size: 7.5pt;
+  font-family: Merriweather, serif;
+  line-height: 11pt;
   text-indent: 0;
-  margin-top: 4pt;
+  margin-bottom: 6pt;
 }
 
 /* admonitions */
