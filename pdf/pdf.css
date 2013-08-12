@@ -156,7 +156,7 @@ section[data-type="sect1"] > h1 {
    to begin numbering correctly. */
 
 body[data-type="book"] {
-  counter-reset: page 1 PartNumber ChapterNumber AppendixNumber FigureNumber TableNumber footnote;
+  counter-reset: page 1 PartNumber ChapterNumber AppendixNumber FigureNumber TableNumber ExampleNumber footnote;
 }
 
 /* frontmatter */
@@ -550,7 +550,7 @@ section[data-type="preface"] > h1 {
 section[data-type="preface"] {
   page: preface;
   page-break-before: right; /* forces the preface to start on a right hand page */
-  counter-reset: FigureNumber TableNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
+  counter-reset: FigureNumber TableNumber ExampleNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
 }
 
 /* parts */
@@ -631,7 +631,7 @@ section[data-type="chapter"]:first-of-type {
 section[data-type="chapter"] {
   page: chapter;
   page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: TableNumber FigureNumber footnote;
+  counter-reset: TableNumber FigureNumber ExampleNumber footnote;
 }
 
 /* appendixes */
@@ -663,7 +663,7 @@ section[data-type="chapter"] {
 section[data-type="appendix"] {
   page: appendix;
   page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: FigureNumber TableNumber footnote;
+  counter-reset: FigureNumber TableNumber ExampleNumber footnote;
 }
 
 /* lists */
@@ -788,7 +788,7 @@ figcaption:before {
   font-style: normal;
   font-size: 8.5pt;
   counter-increment: FigureNumber;
-  content: "FIGURE " counter(ChapterNumber) "-" counter(FigureNumber) ". ";
+  content: "FIGURE " counter(ChapterNumber) "-" counter(FigureNumber);
   display: block;
   margin-bottom: 7.2pt;
 }
@@ -869,15 +869,50 @@ pre, code { /* monospace font for both code blocks and inline code */
 pre { /* code blocks */
   font-size: 9pt;
   line-height: 11pt;
-  margin: 7pt 0 7pt 0.1667in;
+  margin: 12pt 0 12pt 0.167in;
+  white-space: pre-wrap;
 }
 
-code { /* inline code */
-  font-size: 9.5pt;
-  line-height: 14pt;
+pre code { font-size: inherit; }
+
+/* div[data-type="example"] {
+  column-count: 1;
+  margin: 26.64pt 0;
+  padding: 8.64pt 0;
+  display: block;
+  width: 5.6in;
+  -ah-float: outside page skip; 
+  margin-left: -1.25in;
+  margin-right: -1.25in;
+} */
+
+div[data-type="example"] h5 {
+  -ah-float: outside page;
+  -ah-float-margin-y: 15pt;
+  clear: both;
+  margin: 0 -1.25in;
+  padding-top: 5pt;
+  border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
+  width: 1.1in;
+  page-break-inside: avoid;
+  text-align: left;
+  font-family: Merriweather, serif;
+  font-style: italic;
+  font-size: 7.5pt;
+  line-height: 10pt;
+  hyphens: none;
 }
 
-code em { font-style: italic; }
+div[data-type="example"] h5:before {
+  font-family: SourceSansPro-Black, sans-serif;
+  font-style: normal;
+  font-size: 8.5pt;
+  counter-increment: ExampleNumber;
+  content: "EXAMPLE " counter(ChapterNumber) "-" counter(ExampleNumber);
+  display: block;
+  margin-bottom: 7.2pt;
+}
+
 
 table pre { /* code blocks within tables */
   text-indent: 0;
