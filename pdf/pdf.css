@@ -99,14 +99,14 @@ p, dd { /* general text styles */
   line-height: 13pt;
   margin: 0;
   text-align: justify;
-  hyphens: auto;
 }
 
 /* global styles */
 
-div[data-type="book"] {
-  -ah-hyphenate-hyphenated-word: false;
+body {
   -ah-kerning-mode: pair;
+  -ah-hyphenate-hyphenated-word: false;
+  hyphens: auto;
 }
 
 /* general inlines */
@@ -156,7 +156,7 @@ section[data-type="sect1"] > h1 {
    to begin numbering correctly. */
 
 body[data-type="book"] {
-  counter-reset: page 1 PartNumber ChapterNumber AppendixNumber FigureNumber TableNumber ExampleNumber footnote;
+  counter-reset: page 1 PartNumber ChapterNumber AppendixNumber FigureNumber TableNumber ExampleNumber EquationNumber footnote;
 }
 
 /* frontmatter */
@@ -475,19 +475,19 @@ section[data-type="sect1"] > h1 { /* A-level headings */
   font-family: 'Merriweather', serif;
   font-weight: bold;
   font-size: 12pt;
-  line-height: 14pt;
+  line-height: 16pt;
   margin-top: 18pt;
   margin-bottom: 14pt;
   string-set: SectionTitle self; /* A-heads are also displayed in chapter footers */
 }
 
 section[data-type="sect2"] > h2 { /* B-level headings */
-  font-family: 'Merriweather', serif;
-  font-size: 8.5pt;
+  font-family: SourceSansPro, sans-serif;
+  font-weight: bold;
+  font-size: 11pt;
   line-height: 12pt;
-  margin-top: 12pt;
-  margin-bottom: 6pt;
-  text-transform: uppercase;
+  margin-top: 18pt;
+  margin-bottom: 13pt;
 }
 
 section[data-type="sect3"] > h3 { /* C-level headings */
@@ -550,7 +550,7 @@ section[data-type="preface"] > h1 {
 section[data-type="preface"] {
   page: preface;
   page-break-before: right; /* forces the preface to start on a right hand page */
-  counter-reset: FigureNumber TableNumber ExampleNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
+  counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
 }
 
 /* parts */
@@ -631,7 +631,7 @@ section[data-type="chapter"]:first-of-type {
 section[data-type="chapter"] {
   page: chapter;
   page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: TableNumber FigureNumber ExampleNumber footnote;
+  counter-reset: TableNumber FigureNumber ExampleNumber EquationNumber footnote;
 }
 
 /* appendixes */
@@ -663,7 +663,7 @@ section[data-type="chapter"] {
 section[data-type="appendix"] {
   page: appendix;
   page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: FigureNumber TableNumber ExampleNumber footnote;
+  counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote;
 }
 
 /* lists */
@@ -673,9 +673,8 @@ ul, ol { /* bulleted and numbered lists */
 }
 
 ul li, ol li {
-  font-family: 'Crimson-Roman', serif;
-  font-size: 11pt;
-  line-height: 14pt;
+  font-family: SourceSansPro, sans-serif;
+  font-size: 9.5pt;
   margin-top: 3pt;
 }
 
@@ -684,8 +683,8 @@ dl { /* definition lists */
 }
 
 dt { /* definition list terms */
-  font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 8.5pt;
+  font-family: SourceSansPro-Semibold, sans-serif;
+  font-size: 9.5pt;
   line-height: 14pt;
   margin-top: 7pt;
 }
@@ -757,14 +756,12 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 
 figure {
   column-count: 1;
-  margin: 26.64pt 0;
+  margin: 0 -1.25in;
+  -ah-float-margin-y: 20pt;
   padding: 8.64pt 0;
   display: block;
   width: 5.6in;
-  -ah-float: outside page skip; 
-  margin-left: -1.25in;
-  margin-right: -1.25in;
-  page-break-inside: avoid;
+  -ah-float: outside page skip;
   border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
   border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
 }
@@ -803,7 +800,8 @@ figure img {
 aside[data-type="sidebar"] { /* sidebar containers */
   background-color: cmyk(0%,0%,0%,15%);
   -ah-float: outside page skip;
-  margin: 0.25in -1.625in;
+  -ah-float-margin-y: 0.25in;
+  margin: 0 -1.625in;
   padding: 0.25in 1.625in;
   width: 4.375in;
 }
@@ -821,13 +819,20 @@ aside h5 { /* sidebar titles */
 aside h6 { /* sidebar subtitles */
 }
 
-aside p { /* sidebar text */
+aside p, aside dd { /* sidebar text */
   font-size: 7.5pt;
   font-family: Merriweather, serif;
-  line-height: 11pt;
+  line-height: 11.5pt;
   text-indent: 0;
   margin-bottom: 6pt;
 }
+
+aside dt {
+  font-size: 7.5pt;
+  font-family: Merriweather, serif;
+  font-weight: bold;
+}
+  
 
 /* admonitions */
 
@@ -835,7 +840,7 @@ div[data-type="note"], div[data-type="warning"] { /* admonition containers */
   -ah-float: outside page;
   -ah-float-margin-y: 15pt;
   clear: both;
-  margin: 0.1in -1.25in 0 -1.25in;
+  margin: 10pt -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
   width: 1.1in;
@@ -845,9 +850,10 @@ div[data-type="note"], div[data-type="warning"] { /* admonition containers */
 div[data-type="note"] p, div[data-type="warning"] p { /* admon text */
   font-family: Merriweather, serif;
   text-align: left;
-  text-indent: 0in;
+  text-indent: 0;
   font-size: 7.5pt;
   line-height: 11pt;
+  margin-bottom: 6pt;
 }
 
 div[data-type="note"] h1, 
@@ -860,6 +866,12 @@ div[data-type="warning"] h1 { /* admonition titles */
   margin-top: 0;
 }
 
+div[data-type="note"] pre, div[data-type="warning"] pre {
+  font-size: 7.5pt;
+  margin: 0 0 6pt 4pt;
+} 
+
+
 /* code */
 
 pre, code { /* monospace font for both code blocks and inline code */
@@ -871,26 +883,17 @@ pre { /* code blocks */
   line-height: 11pt;
   margin: 12pt 0 12pt 0.167in;
   white-space: pre-wrap;
+  -ah-ignore-leading-newline: true;
 }
+
+code { font-size: 107%; }
 
 pre code { font-size: inherit; }
 
-/* div[data-type="example"] {
-  column-count: 1;
-  margin: 26.64pt 0;
-  padding: 8.64pt 0;
-  display: block;
-  width: 5.6in;
-  -ah-float: outside page skip; 
-  margin-left: -1.25in;
-  margin-right: -1.25in;
-} */
-
 div[data-type="example"] h5 {
   -ah-float: outside page;
-  -ah-float-margin-y: 15pt;
   clear: both;
-  margin: 0 -1.25in;
+  margin: 12pt -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
   width: 1.1in;
@@ -913,19 +916,6 @@ div[data-type="example"] h5:before {
   margin-bottom: 7.2pt;
 }
 
-
-table pre { /* code blocks within tables */
-  text-indent: 0;
-}
-
-div[data-type="note"] code, 
-div[data-type="warning"] code, 
-aside code, 
-table code { /* inline code within notes, sidebars and tables */
-  font-size: inherit;
-  line-height: inherit;
-}
-
 /* blockquote */
 
 blockquote {
@@ -938,3 +928,43 @@ blockquote {
 blockquote p {
   text-indent: 0;
 }
+
+/* math */
+
+div[data-type="equation"] {
+  margin: 12pt 0 12pt 0.167in;
+}
+
+@namespace mml "http://www.w3.org/1998/Math/MathML";
+
+mml|math {
+  font-size: 12pt;
+}
+
+div[data-type="equation"] h5 {
+  -ah-float: outside page;
+  clear: both;
+  margin: 0 -1.25in 0;
+  padding-top: 5pt;
+  border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
+  width: 1.1in;
+  page-break-inside: avoid;
+  text-align: left;
+  font-family: Merriweather, serif;
+  font-style: italic;
+  font-size: 7.5pt;
+  line-height: 10pt;
+  hyphens: none;
+}
+
+div[data-type="equation"] h5:before {
+  font-family: SourceSansPro-Black, sans-serif;
+  font-style: normal;
+  font-size: 8.5pt;
+  counter-increment: EquationNumber;
+  content: "EQUATION " counter(ChapterNumber) "-" counter(EquationNumber);
+  display: block;
+  margin-bottom: 7.2pt;
+}
+
+
