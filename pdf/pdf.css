@@ -491,11 +491,12 @@ section[data-type="sect2"] > h2 { /* B-level headings */
 }
 
 section[data-type="sect3"] > h3 { /* C-level headings */
-  font-family: 'Merriweather', serif;
-  font-size: 9pt;
+  font-family: SourceSansPro-Semibold, sans-serif;
+  font-size: 9.5pt;
+  margin-top: 14pt;
+  margin-bottom: 10pt;
   line-height: 14pt;
-  margin-top: 9pt;
-  margin-bottom: 3pt;
+  text-transform: uppercase;
 }
 
 /* prefaces */
@@ -697,35 +698,47 @@ dd { /* definition list descriptions */
 /* tables */
 
 table {
-  margin-top: 22pt;
-  margin-bottom: 22pt;
-  border-bottom: .5pt solid cmyk(0%,0%,0%,100%);
+  margin: 12pt 0;
+  border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
   border-collapse: collapse;
+  background-color: yellow; /* just for testing */
 }
 
-table caption {
-  font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 8.5pt;
-  line-height: 14pt;
+table caption { /* still not working right */
+  -ah-float: outside page wrap;
+  clear: both;
+  margin: 0 -1.25in;
+  padding-top: 5pt;
+  border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
+  width: 1in;
+  page-break-inside: avoid;
   text-align: left;
-  margin: 0 0 13pt 0;
-  padding: 0;
+  font-family: Merriweather, serif;
+  font-style: italic;
+  font-size: 7.5pt;
+  line-height: 10pt;
+  hyphens: none;
 }
 
-table caption:before { /* table captions are auto-numbered via the following */
+table caption:before {
+  font-family: SourceSansPro-Black, sans-serif;
+  font-style: normal;
+  font-size: 8.5pt;
   counter-increment: TableNumber;
-  content: "Table " counter(ChapterNumber)"-"counter(TableNumber)". ";
-  font-family: 'OpenSans-Semibold', sans-serif;
+  content: "TABLE " counter(ChapterNumber) "-" counter(TableNumber);
+  display: block;
+  margin-bottom: 7.2pt;
+  margin-top: 0;
 }
 
 tr {
-  border-width: 0px;
+  border-width: 0;
 }
 
 th { /* table heading rows */
-  font-family: 'OpenSans-CondBold', sans-serif;
-  font-size: 8pt;
-  line-height: 10pt;
+  font-family: SourceSansPro, sans-serif;
+  font-weight: bold;
+  font-size: 9pt;
   text-align: left;
   margin-top: 0;
   border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
@@ -737,7 +750,7 @@ th, td {
 }
 
 td, table p { /* table body text */
-  font-family: 'OpenSans-CondLight', sans-serif;
+  font-family: SourceSansPro, sans-serif;
   font-size: 9pt;
   line-height: 10pt;
 }
@@ -765,12 +778,11 @@ figure {
 
 figure figcaption {
   display: block;
-  -ah-float: outside; 
+  -ah-float: outside normal; 
   clear: both;
   margin-left: -1.25in;
   margin-right: -1.25in;
-  max-width: 1in;
-  page-break-after: avoid;
+  width: 1in;
   text-align: left;
   font-family: Merriweather, serif;
   font-style: italic;
@@ -944,7 +956,7 @@ div[data-type="equation"] h5 {
   margin: 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
-  width: 1.1in;
+  width: 1in;
   page-break-inside: avoid;
   text-align: left;
   font-family: Merriweather, serif;
