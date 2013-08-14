@@ -755,28 +755,27 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 /* figures */
 
 figure {
-  column-count: 1;
-  margin: 0 -1.25in;
-  -ah-float-margin-y: 20pt;
-  padding: 8.64pt 0;
   display: block;
-  width: 5.6in;
-  -ah-float: outside page skip;
   border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
   border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
+  margin: 20pt -1.625in;
+  padding: 8.64pt 1.625in;
+  width: 4.375in;
 }
 
-figcaption {
+figure figcaption {
+  display: block;
+  -ah-float: outside; 
+  clear: both;
+  margin-left: -1.25in;
+  margin-right: -1.25in;
+  max-width: 1in;
+  page-break-after: avoid;
   text-align: left;
   font-family: Merriweather, serif;
   font-style: italic;
   font-size: 7.5pt;
   line-height: 10pt;
-  display: block;
-  -ah-float: outside column; 
-  margin-left: -1.25in;
-  margin-right: -1.25in;
-  max-width: 1in;
   hyphens: none;
 }
 
@@ -799,9 +798,7 @@ figure img {
 
 aside[data-type="sidebar"] { /* sidebar containers */
   background-color: cmyk(0%,0%,0%,15%);
-  -ah-float: outside page skip;
-  -ah-float-margin-y: 0.25in;
-  margin: 0 -1.625in;
+  margin: 0.25in -1.625in;
   padding: 0.25in 1.625in;
   width: 4.375in;
 }
@@ -896,7 +893,7 @@ div[data-type="example"] h5 {
   margin: 12pt -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
-  width: 1.1in;
+  width: 1in;
   page-break-inside: avoid;
   text-align: left;
   font-family: Merriweather, serif;
@@ -944,7 +941,7 @@ mml|math {
 div[data-type="equation"] h5 {
   -ah-float: outside page;
   clear: both;
-  margin: 0 -1.25in 0;
+  margin: 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
   width: 1.1in;
