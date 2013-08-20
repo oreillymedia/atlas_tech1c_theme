@@ -1,5 +1,3 @@
-@import url('/usr/local/app/orm-pdfrenderer/ah-default.css');
-
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, heigth */
   margin-top: 0.75in; /* white space around the page */
