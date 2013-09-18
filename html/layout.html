@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{ doctype }}
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
@@ -8,13 +8,13 @@
   <body data-type="book">
     <div class="navbar">
       <h1>{{ title }}</h1>
-      <p><?toc_link?></p>
+      <p>{{ toc_link }}</p>
     </div>
     {{ content }}
     <div class="navigation">
       <ul>
-        <li><?next_link?></li>
-        <li><?prev_link?></li>
+        <li>{{ next_link }}</li>
+        <li>{{ prev_link }}</li>
       </ul>
     </div>
   </body>
