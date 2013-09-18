@@ -1,3 +1,15 @@
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding-top: 80px;
+}
+
 /* general blocks */
 
 p, dd { /* general text styles */
@@ -458,6 +470,7 @@ pre { /* code blocks */
   font-size: 0.9em;
   line-height: 120%;
   margin: 10px;
+  overflow-x: auto;
 }
 
 code { /* inline code */
@@ -500,48 +513,79 @@ blockquote p {
   text-indent: 0;
 }
 
-/*Kindle Legacy Specific Styles*/
-@media amzn-mobi {
-  figure caption {
-    text-align: center;
-    font-size: 75%;
-    font-style: italic;
-    margin-top: 1em;
-    margin-bottom: 1em;
+/* website nav element */
+
+div.navbar {
+  font-family: sans-serif;
+  background-color: #E8E8E8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 1px solid #d8d8d8;
 }
 
-h1, h2, h3, h4 {
-  margin-top: 1em;
-  margin-bottom: 1em;
+div.navbar h1 {
+  float: left;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  color: #999;
 }
 
-dl {
-  margin-top: 0.5em;
+div.navbar p {
+  float: right;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
 }
 
-dl dt {
-  display: block;
-  margin-top: 0.5em;
+div.navbar p a {
+  text-decoration: none;
+  color: #999;
 }
 
-aside {
-  margin-top: 1em;
-  margin-bottom: 1em;
+/* iPad
+------------------------------------------------ */
+
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+  body {
+    width: 100%;
+    padding: 20px;
+  }
 }
 
-div[data-type="note"], 
-div[data-type="warning"] {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
+/* iPhone [portrait + landscape] 
+--------------------------------------------------------------------------- */
 
-div[data-type="note"] h1, 
-div[data-type="warning"] h1 {
-  font-style: italic;
+@media screen and (max-width: 480px) {
+  body {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* website nav element */
+
+div.navbar {
+  position: relative;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 2px solid #e8e8e8;
+  box-shadow: 0px 0px 0px #f0f0f0;
   text-align: center;
 }
 
-div[data-type="example"] h5 {
-  margin-top: 1em;
+div.navbar h1 {
+  float: none;
+  margin-bottom: 10px;
 }
+
+div.navbar p {
+  float: none;
+  text-indent: 0;
+}
+
 }
