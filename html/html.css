@@ -390,7 +390,7 @@ figure img { /* figure images */
 
 figcaption {
   font-family: serif;
-  font-size: 0.8em;
+  font-size: 1em;
   font-style: italic;
   line-height: 120%;
   display: block;
@@ -423,7 +423,7 @@ aside h6 { /* sidebar subtitles */
 
 aside p { /* sidebar text */
   font-family: serif;
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 130%;
   text-indent: 0;
   margin-top: 6px;
@@ -455,7 +455,7 @@ div[data-type="warning"] h1 { /* admonition titles */
 div[data-type="note"] p, 
 div[data-type="warning"] p { /* admonition text */
   font-family: serif;
-  font-size: 0.8em;
+  font-size: 1em;
   line-height: 120%;
   text-indent: 0in;
 }
@@ -503,7 +503,7 @@ div[data-type="example"] h5 { /* titles for formal code examples */
 
 blockquote {
   font-family: sans-serif;
-  font-size: 0.8em;
+  font-size: 0.9em;
   line-height: 130%;
   margin-left: 30px;
   margin-right: 30px;
