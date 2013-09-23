@@ -1,3 +1,7 @@
+@charset "UTF-8";
+
+/* @import url("/usr/local/app/orm-pdfrenderer/ah-default.css"); */
+
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, heigth */
   margin-top: 0.75in; /* white space around the page */
@@ -844,14 +848,22 @@ aside dt {
 /* admonitions */
 
 div[data-type="note"], div[data-type="warning"] { /* admonition containers */
-  -ah-float: outside page;
+  
+ -ah-float: page outside;
+ -ah-float-offset-x: -150pt;
+ -ah-float-margin-x: 10pt;
+ width: 140pt;
+
+  /*-ah-float: outside page;
   -ah-float-margin-y: 15pt;
+  -ah-float-offset-x: -90pt;
+  -ah-float-margin-x: 10pt;
+  width: 80pt;
   clear: both;
   margin: 10pt -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
-  width: 1.1in;
-  page-break-inside: avoid;
+  page-break-inside: avoid;*/
 }
 
 div[data-type="note"] p, div[data-type="warning"] p { /* admon text */
