@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-/* @import url("/usr/local/app/orm-pdfrenderer/ah-default.css"); */
+@import url("/usr/local/app/orm-pdfrenderer/ah-default.css");
 
 @page { /* defining overall trim size and page layout */
-  size: 7in 9.1875in; /* width, heigth */
+  size: 7in 9.1875in; /* width, height */
   margin-top: 0.75in; /* white space around the page */
   margin-bottom: 0.75in;
   @sidenote {
@@ -453,7 +453,7 @@ section[data-type="appendix"] > h1:after {
   font-size: 65pt;
   font-family: 'SourceSansPro-ExtraLight', sans-serif;
   position: fixed;
-  top: -0.22in;
+  top: -0.14in;
   right: -0.71in;
 }
 
