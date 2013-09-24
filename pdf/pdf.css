@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* @import url("/usr/local/app/orm-pdfrenderer/ah-default.css"); */
+@import url("/usr/local/app/orm-pdfrenderer/ah-default.css");
 
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, heigth */
@@ -452,9 +452,9 @@ section[data-type="chapter"] > h1:after,
 section[data-type="appendix"] > h1:after {
   font-size: 65pt;
   font-family: 'SourceSansPro-ExtraLight', sans-serif;
-  margin-right: -0.9in;
-  margin-top: -0.53in;
-  display: block;
+  position: fixed;
+  top: -0.22in;
+  right: -0.71in;
 }
 
 section[data-type="chapter"] > h1:after {
@@ -780,7 +780,7 @@ figure {
 
 figure figcaption {
   display: block;
-  -ah-float: outside normal; 
+  -ah-float: outside page; 
   clear: both;
   margin-left: -1.25in;
   margin-right: -1.25in;
