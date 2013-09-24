@@ -776,6 +776,7 @@ figure {
   margin: 20pt -1.625in;
   padding: 8.64pt 1.625in;
   width: 4.375in;
+  -ah-float: outside page skip;
 }
 
 figure figcaption {
