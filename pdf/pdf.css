@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import url("/usr/local/app/orm-pdfrenderer/ah-default.css");
+/* @import url("/usr/local/app/orm-pdfrenderer/ah-default.css"); */
 
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, heigth */
@@ -776,7 +776,7 @@ figure {
   margin: 20pt -1.625in;
   padding: 8.64pt 1.625in;
   width: 4.375in;
-  -ah-float: outside page skip;
+  clear: both;
 }
 
 figure figcaption {
@@ -808,6 +808,9 @@ figure img {
   max-width: 4.25in;
   margin: 0 auto;
 }
+
+figure div.border-box { display: inline; }
+
 
 /* sidebars */
 
@@ -845,26 +848,17 @@ aside dt {
   font-weight: bold;
 }
   
-
 /* admonitions */
 
 div[data-type="note"], div[data-type="warning"] { /* admonition containers */
-  
- -ah-float: page outside;
- -ah-float-offset-x: -150pt;
- -ah-float-margin-x: 10pt;
- width: 140pt;
-
-  /*-ah-float: outside page;
+  -ah-float: outside page;
   -ah-float-margin-y: 15pt;
-  -ah-float-offset-x: -90pt;
-  -ah-float-margin-x: 10pt;
-  width: 80pt;
   clear: both;
   margin: 10pt -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
-  page-break-inside: avoid;*/
+  width: 1.1in;
+  page-break-inside: avoid;
 }
 
 div[data-type="note"] p, div[data-type="warning"] p { /* admon text */
@@ -890,7 +884,6 @@ div[data-type="note"] pre, div[data-type="warning"] pre {
   font-size: 7.5pt;
   margin: 0 0 6pt 4pt;
 } 
-
 
 /* code */
 
