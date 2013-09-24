@@ -627,7 +627,7 @@ div[data-type="part"] > h1:before {
 
 /* page number resets to 1 on the first chapter */
 
-section[data-type="chapter"]:first-of-type {
+section.pagenumrestart {
   counter-reset: page 1;
 }
 
@@ -703,13 +703,13 @@ table {
   margin: 12pt 0;
   border-bottom: 0.5pt solid cmyk(0%,0%,0%,100%);
   border-collapse: collapse;
-  background-color: yellow; /* just for testing */
+  clear: both;
 }
 
 table caption { /* still not working right */
-  -ah-float: outside page wrap;
+  -ah-float: outside page;
   clear: both;
-  margin: 0 -1.25in;
+  margin: -0.29in -1.25in 0 -1.25in;
   padding-top: 5pt;
   border-top: solid 0.5pt cmyk(0%,0%,0%,100%);
   width: 1in;
@@ -736,6 +736,8 @@ table caption:before {
 tr {
   border-width: 0;
 }
+
+tbody { margin: 0; padding: 0; }
 
 th { /* table heading rows */
   font-family: SourceSansPro, sans-serif;
@@ -777,6 +779,7 @@ figure {
   padding: 8.64pt 1.625in;
   width: 4.375in;
   clear: both;
+  text-align: center; /* in AH Land, this is how you center an img in a block */
 }
 
 figure figcaption {
@@ -804,13 +807,22 @@ figcaption:before {
   margin-bottom: 7.2pt;
 }
 
-figure img {
-  max-width: 4.25in;
+section[data-type="preface"] figcaption:before {
+  content: "Figure P-"counter(FigureNumber)". ";
+}
+
+section[data-type="appendix"] figcaption:before {
+  content: "Figure " counter(AppendixNumber)"-"counter(FigureNumber)". ";
+}
+
+img {
+  max-width: 100%;
   margin: 0 auto;
 }
 
-figure div.border-box { display: inline; }
+figure img { max-width: 4.375in; }
 
+figure div.border-box { display: inline; }
 
 /* sidebars */
 
@@ -819,6 +831,7 @@ aside[data-type="sidebar"] { /* sidebar containers */
   margin: 0.25in -1.625in;
   padding: 0.25in 1.625in;
   width: 4.375in;
+  clear: both;
 }
 
 aside h5 { /* sidebar titles */
