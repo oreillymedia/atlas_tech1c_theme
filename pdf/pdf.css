@@ -314,6 +314,7 @@ nav[data-type="toc"] a {
 nav[data-type="toc"] li { /* no list marker on table of contents entries */
   list-style-type: none;
   margin-left: 0;
+  text-align: left;
 }
 
 nav[data-type="toc"] ol { margin-left: 0; }
@@ -908,7 +909,7 @@ div[data-type="example"] h5 {
 }
 
 div[data-type="example"] h5:before {
-  font-family: SourceSansPro-Black, sans-serif;
+  font-family: 'SourceSansPro-Black', sans-serif;
   font-style: normal;
   font-size: 8.5pt;
   counter-increment: ExampleNumber;
@@ -923,14 +924,18 @@ div[data-type="example"] pre {
 /* blockquote */
 
 blockquote {
-  font-family: 'OpenSans-Regular', sans-serif;
-  font-size: 7.5pt;
-  line-height: 11pt;
-  margin-left: 0.1667in;
+  margin: 15pt 0.1667in;
 }
 
 blockquote p {
   text-indent: 0;
+  font-family: 'SourceSansPro', sans-serif;
+  font-size: 7.5pt;
+}
+
+p[data-type="attribution"] {
+  text-align: right;
+  margin-top: 6pt;
 }
 
 /* math */
