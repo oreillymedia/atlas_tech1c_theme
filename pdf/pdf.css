@@ -801,10 +801,13 @@ section[data-type="appendix"] figcaption:before {
 
 img {
   max-width: 100%;
-  margin: 0 auto;
+  margin: 15pt auto;
 }
 
-figure img { max-width: 4.375in; }
+figure img { 
+  max-width: 4.375in;
+  margin: 0 auto;
+}
 
 figure div.border-box { display: inline; }
 
@@ -862,6 +865,11 @@ div[data-type="note"] p, div[data-type="warning"] p { /* admon text */
   font-size: 7.5pt;
   line-height: 11pt;
   margin-bottom: 6pt;
+}
+
+div[data-type="note"] li, div[data-type="warning"] li {
+  font-family: Merriweather, serif;
+  font-size: 7.5pt;
 }
 
 div[data-type="note"] h1, 
