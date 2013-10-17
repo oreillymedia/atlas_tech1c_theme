@@ -809,7 +809,10 @@ figure img {
   margin: 0 auto;
 }
 
-dt img { display: inline-block }
+dt img {
+  display: inline-block;
+  margin: 0;
+}
 
 figure div.border-box { display: inline }
 
