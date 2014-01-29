@@ -764,6 +764,7 @@ figure {
   width: 4.375in;
   clear: both;
   text-align: center; /* in AH Land, this is how you center an img in a block */
+  overflow: auto;
 }
 
 figure figcaption {
