@@ -45,7 +45,7 @@ figure[data-type="cover"] img {
     font-family: SourceSansPro, sans-serif;
     font-size: 8pt;
     text-align: left;
-    margin-left: -1.25in;
+    margin-left: -0.65in;
     margin-top: 6pt;
   }
   @sidenote { margin-left: -1.25in; } 
@@ -65,7 +65,7 @@ figure[data-type="cover"] img {
     font-family: SourceSansPro, sans-serif;
     font-size: 8pt;
     text-align: right;
-    margin-right: -1.25in;
+    margin-right: -0.65in;
     margin-top: 6pt;
   }
   @sidenote { margin-right: -1.25in; } 
