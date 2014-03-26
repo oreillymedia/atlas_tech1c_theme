@@ -990,4 +990,10 @@ div[data-type="equation"] h5:before {
   margin-bottom: 7.2pt;
 }
 
+/* ------------------- PAGEBREAK HANDLING ------------------- */
 
+/* force a page break */
+
+div.hard-pagebreak {
+  page-break-after: always;
+}
