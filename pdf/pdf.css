@@ -442,9 +442,13 @@ section[data-type="chapter"] > h1:after,
 section[data-type="appendix"] > h1:after {
   font-size: 65pt;
   font-family: 'SourceSansPro-ExtraLight', sans-serif;
-  position: fixed;
-  top: -0.14in;
-  right: -0.71in;
+  letter-spacing: -3pt;
+  display: block;
+  position: relative;
+  bottom: 0.445in;
+  left: 4.5in;
+  text-align: center;
+  width: 0.75in;
 }
 
 section[data-type="chapter"] > h1:after {
