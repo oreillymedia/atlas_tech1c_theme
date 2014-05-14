@@ -85,13 +85,15 @@ section[data-type="titlepage"] p,
 section[data-type="copyright-page"] p,
 p[data-type="author"], p.author,
 section[data-type="preface"] > h1 + p, 
+section[data-type="foreword"] > h1 + p,
 div[data-type="part"] > h1 + p, 
 section[data-type="chapter"] > h1 + p, 
 section[data-type="chapter"] > h1 + div.author p, 
 section[data-type="sect1"] > h1 + p, 
 section[data-type="sect2"] > h2 + p,
-section[data-type="sect3"] > h3 + p { 
-  text-indent: 0in; /* first paragraph following a heading has no indent */
+section[data-type="sect3"] > h3 + p,
+h1 + p, h2 + p, h3 + P { 
+  text-indent: 0; /* first paragraph following a heading has no indent */
 }
 
 p, dd { /* general text styles */
@@ -132,6 +134,11 @@ div[data-type="part"] > h1 {
 }
 
 section[data-type="preface"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="foreword"] > h1 {
   bookmark-level: 1;
   bookmark-state: closed;
 }
@@ -333,7 +340,8 @@ nav[data-type="toc"] li[data-type="index"]
   page-break-after: avoid;
 }
 
-nav[data-type="toc"] li[data-type="preface"] {
+nav[data-type="toc"] li[data-type="preface"],
+nav[data-type="toc"] li[data-type="foreword"] {
   font-family: SourceSansPro-Semibold, sans-serif;
   font-style: italic;
   font-size: 9.5pt;
@@ -356,12 +364,15 @@ nav[data-type="toc"] li[data-type="sect2"] a:after {
   margin-right: -0.25in; /* for long lines */
 }
 
-nav[data-type="toc"] li[data-type="preface"] > a:after {
+nav[data-type="toc"] li[data-type="preface"] > a:after,
+nav[data-type="toc"] li[data-type="foreword"] > a:after {
   content: leader(space) " " target-counter(attr(href, url), page, lower-roman);
 }
 
 nav[data-type="toc"] li[data-type="preface"] li[data-type="sect1"],
 nav[data-type="toc"] li[data-type="preface"] li[data-type="sect2"], /* show no heads in preface */
+nav[data-type="toc"] li[data-type="foreword"] li[data-type="sect1"],
+nav[data-type="toc"] li[data-type="foreword"] li[data-type="sect2"], /* show no heads in foreword */
 nav[data-type="toc"] li[data-type="appendix"] li[data-type="sect1"],
 nav[data-type="toc"] li[data-type="appendix"] li[data-type="sect2"] { /* and appendix */
   display: none;
@@ -413,7 +424,8 @@ nav[data-type="toc"] li[data-type="appendix"]::marker {
 /* preface, chapter, and appendix headings */
 
 /* shared styles for all chapter-level headings */
-section[data-type="preface"] > h1, 
+section[data-type="preface"] > h1,
+section[data-type="foreword"] > h1, 
 section[data-type="chapter"] > h1, 
 section[data-type="appendix"] > h1 {
   font-family: 'Merriweather', serif;
@@ -424,6 +436,10 @@ section[data-type="appendix"] > h1 {
 }
 
 section[data-type="preface"] > h1 {
+  string-set: ChapterTitle self;
+}
+
+section[data-type="foreword"] > h1 {
   string-set: ChapterTitle self;
 }
 
@@ -547,6 +563,61 @@ section[data-type="preface"] > h1 {
 section[data-type="preface"] {
   page: preface;
   page-break-before: right; /* forces the preface to start on a right hand page */
+  counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
+}
+
+/* forewords */
+
+section[data-type="foreword"] > h1 {
+  font-size: 16pt;
+  font-weight: normal;
+}
+
+@page foreword:first {
+  @bottom-right-corner {
+    content: counter(page, lower-roman);
+  }
+  @top-right {
+    content: none;
+  }
+}
+
+@page foreword:left {
+  @top-left {
+    content: string(ChapterTitle);
+  }
+  @bottom-left-corner {
+    content: counter(page, lower-roman);
+  }
+}
+
+@page foreword:right {
+  @top-right {
+    content: string(ChapterTitle);
+  }
+  @bottom-right-corner {
+    content: counter(page, lower-roman);
+  }
+}
+
+@page foreword:blank { 
+  @bottom-left-corner {
+    content: none;
+  }
+  @bottom-right-corner {
+    content: none;
+  }
+  @top-right {
+    content: none;
+  }
+  @top-left {
+    content: none;
+  }
+}
+
+section[data-type="foreword"] {
+  page: foreword;
+  page-break-before: right; /* forces the foreword to start on a right hand page */
   counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
 }
 
@@ -798,6 +869,10 @@ figcaption:before {
 
 section[data-type="preface"] figcaption:before {
   content: "Figure P-"counter(FigureNumber)". ";
+}
+
+section[data-type="foreword"] figcaption:before {
+  content: "Figure F-"counter(FigureNumber)". ";
 }
 
 section[data-type="appendix"] figcaption:before {
