@@ -1,23 +1,26 @@
-/* general blocks */
+/* ---------------------- general blocks ---------------------- */
+
 
 p, dd { /* general text styles */
   font-family: sans-serif;
   text-indent: 20px;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 125%;
 }
 
 section[data-type="preface"] > h1 + p, 
 div[data-type="part"] > h1 + p, 
-section[data-type="chapter"] > h1 + p, 
+section[data-type="chapter"] > h1 + p,
+div[data-type="chapter"] > h1 + p
 section[data-type="chapter"] > h1 + div.author p, 
 section[data-type="sect1"] > h1 + p, 
 section[data-type="sect2"] > h2 + p,
-section[data-type="sect3"] > h3 + p { 
+section[data-type="sect3"] > h3 + p,
+p { 
   text-indent: 0px; /* first paragraph following a heading has no indent */
 }
 
-/* general inlines */
+/* ---------------------- general inlines ---------------------- */
 
 p a {
   display: inline;
@@ -76,7 +79,9 @@ section[data-type="titlepage"] p {
   text-indent: 0;
 }
 
-/* copyright page */
+
+/* ---------------------- copyright page ---------------------- */
+
 
 section[data-type="copyright-page"] {
   margin-top: 100px;
@@ -104,7 +109,7 @@ section[data-type="dedication"] {
   padding-top: 100px;
 }
 
-/* table of contents */
+/* ---------------------- table of contents ---------------------- */
 
 /* global styles for the table of contents */
 /* table of contents is a series of nested lists in a nav element */
@@ -211,7 +216,8 @@ section[data-type="appendix"] {
   page-break-after: always; 
 }
 
-/* preface, chapter, and appendix headings */
+
+/* ---------------------- headings ---------------------- */
 
 /* heading font is sans serif */
 
@@ -234,11 +240,17 @@ section[data-type="sect3"] h3 {
 /* shared styles for all chapter-level headings */
 section[data-type="preface"] > h1, 
 section[data-type="chapter"] > h1, 
-section[data-type="appendix"] > h1 {
-  font-size: 1.8em;
+section[data-type="appendix"] > h1,
+div.chapter > h1 {
+  font-size: 2em;
   margin-top: 70px;
-  margin-bottom: 40px;
-  text-align: left;
+  margin-bottom: 50px;
+  text-align: right;
+}
+
+div.chapter > h1 > span.label { 
+  width: 100%;
+  display: block;
 }
 
 /* section headings */
@@ -246,7 +258,7 @@ section[data-type="appendix"] > h1 {
 section[data-type="sect1"] h1 { /* A-level headings */
   font-size: 1.5em;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 section[data-type="sect2"] h2 { /* B-level headings */
@@ -270,7 +282,7 @@ div[data-type="part"] > h1 {
   margin-bottom: 70px;
 }
 
-/* lists */
+/* ---------------------- lists ---------------------- */
 
 ul, ol { /* bulleted and numbered lists */
   margin: 10px 0 10px 0;
@@ -306,23 +318,27 @@ dd p {
   text-indent: 0;
 }
 
-/* tables */
+/* ---------------------- tables ---------------------- */
 
 table {
   margin-top: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #888;
   border-collapse: collapse;
+  max-width: 100%;
 }
 
 table caption {
-  font-family: sans-serif;
+  font-family: serif;
   font-size: 0.8em;
   line-height: 120%;
   text-align: left;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 0;
 }
+
+table caption span.label { font-weight: bold;}
+
 
 tr {
   border-width: 0px;
@@ -358,39 +374,48 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
   word-wrap: break-word;
 }
 
-/* figures */
+/* ---------------------- figures ---------------------- */
 
 figure { /* figure containers */
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 0;
-  display: block;
+  margin: 30px 0px;
+  padding: 0px;
   page-break-inside: avoid;
-}
-
-figure img { /* figure images */
   border-top: 1px solid #888;
   border-bottom: 1px solid #888;
-  padding: 5px 0 5px 0;
-  max-width: 100%;
-  margin: 0;
 }
 
+
+figure img { /* figure images */
+  padding: 5px 0 5px 0;
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+figure h6,
 figcaption {
   font-family: serif;
   font-size: 0.8em;
   font-style: italic;
   line-height: 120%;
   display: block;
+  font-weight: normal;
+  margin: 6px 0 5px 0;  
 }
 
-/* sidebars */
+figure h6 span.label,
+figcaptio span.label { 
+font-weight: bold;
+font-style: normal;}
+
+/* ---------------------- sidebars ---------------------- */
 
 aside { /* sidebar containers */
   background-color: #d8d8d8;
   border: 1px solid #d8d8d8;
   padding: 20px 20px 10px 20px;
   margin: 30px 0 30px 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 aside h5 { /* sidebar titles */
@@ -417,15 +442,16 @@ aside p { /* sidebar text */
   margin-top: 6px;
 }
 
-/* admonitions */
+/* ---------------------- admonitions ---------------------- */
 
 div[data-type="note"], 
 div[data-type="warning"] { /* admonition containers */
-  border-top: 2px solid #888;
-  border-bottom: 1px solid #d8d8d8;
-  padding: 10px 0;
-  margin: 30px 30px 30px 30px;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  padding: 0;
+  margin: 25px 50px 25px 30px;
   page-break-inside: avoid; /* avoid breaking admonitions across pages */
+  text-align: justify;
 }
 
 div[data-type="note"] h1, 
@@ -448,20 +474,20 @@ div[data-type="warning"] p { /* admonition text */
   text-indent: 0in;
 }
 
-/* code */
+/* ---------------------- code ---------------------- */
 
 pre, code { /* monospace font for both code blocks and inline code */
   font-family: monospace;
 }
 
 pre { /* code blocks */
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 120%;
   margin: 10px;
 }
 
 code { /* inline code */
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 120%;
 }
 
@@ -486,7 +512,7 @@ div[data-type="example"] h5 { /* titles for formal code examples */
   margin-top: 30px;
 }
 
-/* blockquote */
+/* ---------------------- blockquotes ---------------------- */
 
 blockquote {
   font-family: sans-serif;
@@ -500,7 +526,7 @@ blockquote p {
   text-indent: 0;
 }
 
-/* Syntax Highlighting */
+/* ---------------------- Syntax Highlighting ---------------------- */
 
 /* Pygments with manni theme */
 pre code.hll { background-color: #ffffcc }
@@ -580,3 +606,4 @@ pre code.nx { color: #000088 } /* Name.Other */
 pre code.py { color: #9966FF } /* Name.Property */
 pre code.p { color: #000000 } /* Punctuation */
 pre code.x { color: #FF0066 } /* Other */
+
