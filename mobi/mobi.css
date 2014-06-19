@@ -312,12 +312,14 @@ dt { /* definition list terms */
   font-size: 0.9em;
   line-height: 120%;
   margin-top: 15px;
-  margin-bottom: 4px;
+  margin-bottom: 0;
 }
 
 dd { /* definition list descriptions */
   text-indent: 0;
   margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: -5px;;
 }
 
 dd p {
