@@ -143,7 +143,7 @@ nav[data-type="toc"] li {
 nav[data-type="toc"] li[data-type="chapter"], 
 nav[data-type="toc"] li[data-type="part"], 
 nav[data-type="toc"] li[data-type="appendix"] { 
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-left: 0;
   text-indent: 0;
@@ -181,7 +181,7 @@ nav[data-type="toc"] li[data-type="appendix"] {
 
 nav[data-type="toc"] li[data-type="chapter"] ol { 
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-left: 20px;
   text-indent: -10px;
@@ -198,7 +198,7 @@ nav[data-type="toc"] li[data-type="preface"],
 nav[data-type="toc"] li[data-type="foreword"], 
 nav[data-type="toc"] li[data-type="glossary"], 
 nav[data-type="toc"] li[data-type="index"] {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
 }
 
@@ -229,6 +229,9 @@ section[data-type="appendix"] > h1,
 section[data-type="sect1"] h1 {
   font-family: serif;
   line-height: 120%;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
 }
 
 section[data-type="sect2"] h2, 
@@ -246,6 +249,9 @@ div.chapter > h1 {
   margin-top: 70px;
   margin-bottom: 50px;
   text-align: right;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
 }
 
 div.chapter > h1 > span.label { 
@@ -262,13 +268,13 @@ section[data-type="sect1"] h1 { /* A-level headings */
 }
 
 section[data-type="sect2"] h2 { /* B-level headings */
-  font-size: 1.1em;
+  font-size: 1.0.9em;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 section[data-type="sect3"] h3 { /* C-level headings */
-  font-size: 1.1em;
+  font-size: 1.0.9em;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -291,7 +297,7 @@ ul, ol { /* bulleted and numbered lists */
 ul li, ol li, 
 ul li p, ol li p {
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-top: 5px;
   text-indent: 0;
@@ -378,16 +384,18 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 
 figure { /* figure containers */
   margin: 30px 0px;
-  padding: 0px;
-  page-break-inside: avoid;
+  padding: 0 40px 0 0;
   border-top: 1px solid #888;
   border-bottom: 1px solid #888;
+  /*both of these elements are to avoid page breaks inside*/
+  display: inline-block;
+  page-break-inside: avoid;
 }
 
 
 figure img { /* figure images */
   padding: 5px 0 5px 0;
-  max-width: 85%;
+  max-width: 85% !important;
   margin: 0 auto;
 }
 
@@ -420,7 +428,7 @@ aside { /* sidebar containers */
 
 aside h5 { /* sidebar titles */
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   text-align: center;
   margin: 0;
@@ -504,14 +512,25 @@ table code { /* inline code within notes, sidebars and tables */
 }
 
 div[data-type="example"] h5 { /* titles for formal code examples */
-  font-family: sans-serif;
+  font-family: serif;
   font-size: 0.8em;
   line-height: 120%;
   border-bottom: 1px solid #d8d8d8;
   padding-bottom: 6px;
   margin-top: 30px;
+  font-weight: normal;
+  font-style: italic;
 }
 
+div[data-type="example"] h5 span.label { 
+  font-weight: bold;
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+ul code,
+ol code
+{ font-size: 1.2em;}
 /* ---------------------- blockquotes ---------------------- */
 
 blockquote {
@@ -606,4 +625,6 @@ pre code.nx { color: #000088 } /* Name.Other */
 pre code.py { color: #9966FF } /* Name.Property */
 pre code.p { color: #000000 } /* Punctuation */
 pre code.x { color: #FF0066 } /* Other */
+
+
 

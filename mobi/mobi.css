@@ -1,23 +1,26 @@
-/* general blocks */
+/* ---------------------- general blocks ---------------------- */
+
 
 p, dd { /* general text styles */
   font-family: sans-serif;
   text-indent: 20px;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 125%;
 }
 
 section[data-type="preface"] > h1 + p, 
 div[data-type="part"] > h1 + p, 
-section[data-type="chapter"] > h1 + p, 
+section[data-type="chapter"] > h1 + p,
+div[data-type="chapter"] > h1 + p
 section[data-type="chapter"] > h1 + div.author p, 
 section[data-type="sect1"] > h1 + p, 
 section[data-type="sect2"] > h2 + p,
-section[data-type="sect3"] > h3 + p { 
+section[data-type="sect3"] > h3 + p,
+p { 
   text-indent: 0px; /* first paragraph following a heading has no indent */
 }
 
-/* general inlines */
+/* ---------------------- general inlines ---------------------- */
 
 p a {
   display: inline;
@@ -76,7 +79,9 @@ section[data-type="titlepage"] p {
   text-indent: 0;
 }
 
-/* copyright page */
+
+/* ---------------------- copyright page ---------------------- */
+
 
 section[data-type="copyright-page"] {
   margin-top: 100px;
@@ -104,7 +109,7 @@ section[data-type="dedication"] {
   padding-top: 100px;
 }
 
-/* table of contents */
+/* ---------------------- table of contents ---------------------- */
 
 /* global styles for the table of contents */
 /* table of contents is a series of nested lists in a nav element */
@@ -138,7 +143,7 @@ nav[data-type="toc"] li {
 nav[data-type="toc"] li[data-type="chapter"], 
 nav[data-type="toc"] li[data-type="part"], 
 nav[data-type="toc"] li[data-type="appendix"] { 
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-left: 0;
   text-indent: 0;
@@ -176,7 +181,7 @@ nav[data-type="toc"] li[data-type="appendix"] {
 
 nav[data-type="toc"] li[data-type="chapter"] ol { 
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-left: 20px;
   text-indent: -10px;
@@ -193,7 +198,7 @@ nav[data-type="toc"] li[data-type="preface"],
 nav[data-type="toc"] li[data-type="foreword"], 
 nav[data-type="toc"] li[data-type="glossary"], 
 nav[data-type="toc"] li[data-type="index"] {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
 }
 
@@ -211,7 +216,8 @@ section[data-type="appendix"] {
   page-break-after: always; 
 }
 
-/* preface, chapter, and appendix headings */
+
+/* ---------------------- headings ---------------------- */
 
 /* heading font is sans serif */
 
@@ -223,6 +229,9 @@ section[data-type="appendix"] > h1,
 section[data-type="sect1"] h1 {
   font-family: serif;
   line-height: 120%;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
 }
 
 section[data-type="sect2"] h2, 
@@ -234,11 +243,20 @@ section[data-type="sect3"] h3 {
 /* shared styles for all chapter-level headings */
 section[data-type="preface"] > h1, 
 section[data-type="chapter"] > h1, 
-section[data-type="appendix"] > h1 {
-  font-size: 1.8em;
+section[data-type="appendix"] > h1,
+div.chapter > h1 {
+  font-size: 2em;
   margin-top: 70px;
-  margin-bottom: 40px;
-  text-align: left;
+  margin-bottom: 50px;
+  text-align: right;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
+}
+
+div.chapter > h1 > span.label { 
+  width: 100%;
+  display: block;
 }
 
 /* section headings */
@@ -246,17 +264,17 @@ section[data-type="appendix"] > h1 {
 section[data-type="sect1"] h1 { /* A-level headings */
   font-size: 1.5em;
   margin-top: 40px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 section[data-type="sect2"] h2 { /* B-level headings */
-  font-size: 1.1em;
+  font-size: 1.0.9em;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 section[data-type="sect3"] h3 { /* C-level headings */
-  font-size: 1.1em;
+  font-size: 1.0.9em;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -270,7 +288,7 @@ div[data-type="part"] > h1 {
   margin-bottom: 70px;
 }
 
-/* lists */
+/* ---------------------- lists ---------------------- */
 
 ul, ol { /* bulleted and numbered lists */
   margin: 10px 0 10px 0;
@@ -279,7 +297,7 @@ ul, ol { /* bulleted and numbered lists */
 ul li, ol li, 
 ul li p, ol li p {
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   margin-top: 5px;
   text-indent: 0;
@@ -306,23 +324,27 @@ dd p {
   text-indent: 0;
 }
 
-/* tables */
+/* ---------------------- tables ---------------------- */
 
 table {
   margin-top: 30px;
   margin-bottom: 30px;
   border-bottom: 1px solid #888;
   border-collapse: collapse;
+  max-width: 100%;
 }
 
 table caption {
-  font-family: sans-serif;
+  font-family: serif;
   font-size: 0.8em;
   line-height: 120%;
   text-align: left;
-  margin: 0 0 20px 0;
+  margin: 0 0 10px 0;
   padding: 0;
 }
+
+table caption span.label { font-weight: bold;}
+
 
 tr {
   border-width: 0px;
@@ -358,44 +380,55 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
   word-wrap: break-word;
 }
 
-/* figures */
+/* ---------------------- figures ---------------------- */
 
 figure { /* figure containers */
-  margin-top: 30px;
-  margin-bottom: 30px;
-  padding: 0;
-  display: block;
+  margin: 30px 0px;
+  padding: 0 40px 0 0;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  /*both of these elements are to avoid page breaks inside*/
+  display: inline-block;
   page-break-inside: avoid;
 }
 
+
 figure img { /* figure images */
-  border-top: 1px solid #888;
-  border-bottom: 1px solid #888;
   padding: 5px 0 5px 0;
-  max-width: 100%;
-  margin: 0;
+  max-width: 85% !important;
+  margin: 0 auto;
 }
 
+figure h6,
 figcaption {
   font-family: serif;
   font-size: 0.8em;
   font-style: italic;
   line-height: 120%;
   display: block;
+  font-weight: normal;
+  margin: 6px 0 5px 0;  
 }
 
-/* sidebars */
+figure h6 span.label,
+figcaptio span.label { 
+font-weight: bold;
+font-style: normal;}
+
+/* ---------------------- sidebars ---------------------- */
 
 aside { /* sidebar containers */
   background-color: #d8d8d8;
   border: 1px solid #d8d8d8;
   padding: 20px 20px 10px 20px;
   margin: 30px 0 30px 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
 }
 
 aside h5 { /* sidebar titles */
   font-family: sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 120%;
   text-align: center;
   margin: 0;
@@ -417,15 +450,16 @@ aside p { /* sidebar text */
   margin-top: 6px;
 }
 
-/* admonitions */
+/* ---------------------- admonitions ---------------------- */
 
 div[data-type="note"], 
 div[data-type="warning"] { /* admonition containers */
-  border-top: 2px solid #888;
-  border-bottom: 1px solid #d8d8d8;
-  padding: 10px 0;
-  margin: 30px 30px 30px 30px;
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #888;
+  padding: 0;
+  margin: 25px 50px 25px 30px;
   page-break-inside: avoid; /* avoid breaking admonitions across pages */
+  text-align: justify;
 }
 
 div[data-type="note"] h1, 
@@ -448,20 +482,20 @@ div[data-type="warning"] p { /* admonition text */
   text-indent: 0in;
 }
 
-/* code */
+/* ---------------------- code ---------------------- */
 
 pre, code { /* monospace font for both code blocks and inline code */
   font-family: monospace;
 }
 
 pre { /* code blocks */
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 120%;
   margin: 10px;
 }
 
 code { /* inline code */
-  font-size: 0.9em;
+  font-size: 1em;
   line-height: 120%;
 }
 
@@ -478,15 +512,26 @@ table code { /* inline code within notes, sidebars and tables */
 }
 
 div[data-type="example"] h5 { /* titles for formal code examples */
-  font-family: sans-serif;
+  font-family: serif;
   font-size: 0.8em;
   line-height: 120%;
   border-bottom: 1px solid #d8d8d8;
   padding-bottom: 6px;
   margin-top: 30px;
+  font-weight: normal;
+  font-style: italic;
 }
 
-/* blockquote */
+div[data-type="example"] h5 span.label { 
+  font-weight: bold;
+  font-family: sans-serif;
+  font-style: normal;
+}
+
+ul code,
+ol code
+{ font-size: 1.2em;}
+/* ---------------------- blockquotes ---------------------- */
 
 blockquote {
   font-family: sans-serif;
@@ -500,7 +545,7 @@ blockquote p {
   text-indent: 0;
 }
 
-/* Syntax Highlighting */
+/* ---------------------- Syntax Highlighting ---------------------- */
 
 /* Pygments with manni theme */
 pre code.hll { background-color: #ffffcc }
@@ -581,48 +626,5 @@ pre code.py { color: #9966FF } /* Name.Property */
 pre code.p { color: #000000 } /* Punctuation */
 pre code.x { color: #FF0066 } /* Other */
 
-/*Kindle Legacy Specific Styles*/
-@media amzn-mobi {
-  figure caption {
-    text-align: center;
-    font-size: 75%;
-    font-style: italic;
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
 
-h1, h2, h3, h4 {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
 
-dl {
-  margin-top: 0.5em;
-}
-
-dl dt {
-  display: block;
-  margin-top: 0.5em;
-}
-
-aside {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-div[data-type="note"], 
-div[data-type="warning"] {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-div[data-type="note"] h1, 
-div[data-type="warning"] h1 {
-  font-style: italic;
-  text-align: center;
-}
-
-div[data-type="example"] h5 {
-  margin-top: 1em;
-}
-}
