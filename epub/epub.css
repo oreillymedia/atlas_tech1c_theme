@@ -290,8 +290,12 @@ div[data-type="part"] > h1 {
 
 /* ---------------------- lists ---------------------- */
 
-ul, ol { /* bulleted and numbered lists */
-  margin: 10px 0 10px 0;
+/*Top-level list positioning*/
+ul, ol { 
+    margin: 0.25em 0 1em 15px;
+    padding: 0 0 0 -10px; 
+    list-style-position: outside;
+    text-indent: 0;
 }
 
 ul li, ol li, 
@@ -384,7 +388,7 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 
 /* ---------------------- figures ---------------------- */
 
-figure { /* figure containers */
+div.figure { /* figure containers */
   margin: 30px 0px;
   padding: 0 40px 0 0;
   border-top: 1px solid #888;
@@ -395,13 +399,13 @@ figure { /* figure containers */
 }
 
 
-figure img { /* figure images */
+div.figure img { /* figure images */
   padding: 5px 0 5px 0;
   max-width: 85% !important;
   margin: 0 auto;
 }
 
-figure h6,
+div.figure h6,
 figcaption {
   font-family: serif;
   font-size: 0.8em;
@@ -412,23 +416,21 @@ figcaption {
   margin: 6px 0 5px 0;  
 }
 
-figure h6 span.label,
+div.figure h6 span.label,
 figcaptio span.label { 
 font-weight: bold;
 font-style: normal;}
 
 /* ---------------------- sidebars ---------------------- */
-
-aside { /* sidebar containers */
-  background-color: #d8d8d8;
+div.sidebar {  background-color: #F7F7F7;
   border: 1px solid #d8d8d8;
   padding: 20px 20px 10px 20px;
   margin: 30px 0 30px 0;
   -webkit-border-radius: 5px;
-  border-radius: 5px;
-}
+  border-radius: 5px;}
+  
 
-aside h5 { /* sidebar titles */
+div.sidebar h5 { /* sidebar titles */
   font-family: sans-serif;
   font-size: 0.9em;
   line-height: 120%;
@@ -437,14 +439,14 @@ aside h5 { /* sidebar titles */
   padding: 0;
 }
 
-aside h6 { /* sidebar subtitles */
+div.sidebar h6 { /* sidebar subtitles */
   font-family: sans-serif;
   font-weight: bold;
   font-size: 0.9em;
   line-height: 120%;
 }
 
-aside p { /* sidebar text */
+div.sidebar p { /* sidebar text */
   font-family: serif;
   font-size: 0.9em;
   line-height: 130%;
@@ -491,14 +493,21 @@ pre, code { /* monospace font for both code blocks and inline code */
 }
 
 pre { /* code blocks */
-  font-size: 1em;
-  line-height: 120%;
-  margin: 10px;
+  white-space: pre-wrap;
+  font-family: "Ubuntu Mono", monospace;
+  margin: 25px 0 25px 20px;
+  font-size: 90%;
+  display: block;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
 }
 
 code { /* inline code */
-  font-size: 1em;
-  line-height: 120%;
+  font-size: 90%;
+  -webkit-hyphens: none;
+  hyphens: none;
+  adobe-hyphenate: none;
 }
 
 table pre { /* code blocks within tables */
@@ -515,7 +524,7 @@ table code { /* inline code within notes, sidebars and tables */
 
 div[data-type="example"] h5 { /* titles for formal code examples */
   font-family: serif;
-  font-size: 0.8em;
+  font-size: 95%;
   line-height: 120%;
   border-bottom: 1px solid #d8d8d8;
   padding-bottom: 6px;
@@ -530,9 +539,6 @@ div[data-type="example"] h5 span.label {
   font-style: normal;
 }
 
-ul code,
-ol code
-{ font-size: 1.2em;}
 /* ---------------------- blockquotes ---------------------- */
 
 blockquote {
@@ -627,6 +633,8 @@ pre code.nx { color: #000088 } /* Name.Other */
 pre code.py { color: #9966FF } /* Name.Property */
 pre code.p { color: #000000 } /* Punctuation */
 pre code.x { color: #FF0066 } /* Other */
+
+
 
 
 
