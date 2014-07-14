@@ -1,6 +1,7 @@
 @charset "UTF-8";
-
-@import url("/usr/local/app/orm-pdfrenderer/ah-default.css");
+/*
+@import url("/usr/local/app/orm-pdfrenderer/ah-default.css");*/
+ @import url('/usr/share/dcps/pdfrenderer/css/ah-default.css');
 
 @page { /* defining overall trim size and page layout */
   size: 7in 9.1875in; /* width, height */
@@ -155,6 +156,11 @@ section[data-type="appendix"] > h1 {
 
 section[data-type="sect1"] > h1 {
   bookmark-level: 2;
+  bookmark-state: closed;
+}
+
+section[data-type="index"] > h1 {
+  bookmark-level: 1;
   bookmark-state: closed;
 }
 
@@ -1068,6 +1074,84 @@ div[data-type="equation"] h5:before {
   display: block;
   margin-bottom: 7.2pt;
 }
+
+/* --------------------------------------------------------------------- */
+/* ------------------------------- Index ------------------------------- */
+/* --------------------------------------------------------------------- */
+
+section[data-type="index"] { page: index }
+
+@page index:left {
+  @bottom-left {
+    content: counter(page)"\2003\007C\2003Index";
+  }
+  @top-left-corner {
+    border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: -6pt 0 0 -6pt;
+  }
+  @left-top {
+  border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: -2pt 0 -2pt -6pt;
+  }
+  @bottom-left-corner {
+  border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: 0 0 -6pt -6pt;
+  }
+}
+
+@page index:right {
+  @bottom-right {
+    content: "Index\2003\007C\2003"counter(page);
+  }
+  @top-right-corner {
+    border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: -6pt -6pt 0 0;
+  }
+  @right-top {
+  border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: -2pt -6pt -2pt 0;
+  }
+  @bottom-right-corner {
+  border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
+  margin: 0 -6pt -6pt 0;
+  }
+}
+
+.indexnote {
+  content: "Weâd like to hear your suggestions for improving our indexes. Send email to index@oreilly.com.";
+  float: bottom;
+  margin-top: 15pt;
+  font-size: 8.5pt;
+  font-style: italic;
+  hyphens: none;
+}
+
+div[data-type="index"] {
+  column-count: 2;
+  column-gap: 15pt;
+}
+
+a[data-type="index:locator"] { content: target-counter(attr(href, url), page); }
+/* Need something for roman numerals */
+
+section[data-type="index"] ul {
+  margin: 0;
+  padding: 0;
+}
+
+section[data-type="index"] ul li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0 0 0 0.17in;
+  text-indent: -0.17in;
+  font-size: 9pt;
+}
+
+div[data-type="indexdiv"] h3 {
+  font-size: 14pt;
+  margin: 12pt 0 0 0;
+}
+
 
 /* ------------------- PAGEBREAK HANDLING ------------------- */
 
