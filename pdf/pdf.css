@@ -164,6 +164,12 @@ section[data-type="index"] > h1 {
   bookmark-state: closed;
 }
 
+div[data-type="part"] section[data-type="glossary"] { 
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
 /* reset counters */
 
 /* counters add auto-numbering to elements in the book. 
@@ -433,7 +439,9 @@ nav[data-type="toc"] li[data-type="appendix"]::marker {
 section[data-type="preface"] > h1,
 section[data-type="foreword"] > h1, 
 section[data-type="chapter"] > h1, 
-section[data-type="appendix"] > h1 {
+section[data-type="appendix"] > h1,
+section[data-type="index"] > h1,
+section[data-type="glossary"] > h1 {
   font-family: 'Merriweather', serif;
   line-height: 22pt;
   margin-bottom: 0.9in;
@@ -1152,6 +1160,51 @@ div[data-type="indexdiv"] h3 {
   margin: 12pt 0 0 0;
 }
 
+section[data-type="index"],
+section[data-type="glossary"] {page-break-before: right;}
+
+/* --------------------------------------------------------------------- */
+/* ----------------------------- Glossary ------------------------------ */
+/* --------------------------------------------------------------------- */
+
+section[data-type="glossary"] { page: glossary }
+
+@page glossary:first {
+  @top-right { content: none }
+}
+  
+@page glossary:left {
+  @bottom-left { content: counter(page)"\2003\007C\2003""Glossary" }
+  @top-left {
+    content: string(term, first);
+    font-size: 9pt;
+    font-family: "MyriadPro-SemiboldCond";
+  }
+}
+
+@page glossary:right {
+  @bottom-right { content: "Glossary""\2003\007C\2003"counter(page) }
+  @top-right {
+    content: string(term, last);
+    font-size: 9pt;
+  }
+}
+
+section[data-type="glossary"] dl { 
+  column-count: 2;
+  column-gap: 0.25in;
+  -ah-column-fill: balance;
+}
+
+section[data-type="glossary"] dt {
+  font-style: normal;
+  font-size: 9pt;
+  string-set: term self;
+}
+
+section[data-type="glossary"] dd p { font-size: 9pt }
+
+section[data-type="glossary"] dd { font-size: 9pt }
 
 /* ------------------- PAGEBREAK HANDLING ------------------- */
 
