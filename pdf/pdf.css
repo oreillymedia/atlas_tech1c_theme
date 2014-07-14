@@ -122,54 +122,6 @@ a {
   text-decoration: none;
 }
 
-/* PDF bookmarks */
-
-nav[data-type="toc"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-div[data-type="part"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-section[data-type="preface"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-section[data-type="foreword"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-section[data-type="chapter"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-section[data-type="appendix"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-section[data-type="sect1"] > h1 {
-  bookmark-level: 2;
-  bookmark-state: closed;
-}
-
-section[data-type="index"] > h1 {
-  bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-div[data-type="part"] section[data-type="glossary"] { 
-  bookmark-level: 2;
-  bookmark-state: closed;
-  bookmark-label: attr(data-pdf-bookmark);
-}
-
 /* reset counters */
 
 /* counters add auto-numbering to elements in the book. 
@@ -1161,7 +1113,8 @@ div[data-type="indexdiv"] h3 {
 }
 
 section[data-type="index"],
-section[data-type="glossary"] {page-break-before: right;}
+section[data-type="glossary"],
+section[data-type="bibliography"] {page-break-before: right;}
 
 /* --------------------------------------------------------------------- */
 /* ----------------------------- Glossary ------------------------------ */
@@ -1206,6 +1159,76 @@ section[data-type="glossary"] dd p { font-size: 9pt }
 
 section[data-type="glossary"] dd { font-size: 9pt }
 
+/* --------------------------------------------------------------------- */
+/* --------------------------- Bibliography ---------------------------- */
+/* --------------------------------------------------------------------- */
+
+section[data-type="bibliography"] { page: bibliography }
+
+@page bibliography:first {
+  @top-right { content: none }
+}
+  
+@page bibliography:left {
+  @bottom-left { content: counter(page)"\2003\007C\2003""Bibliography" }
+}
+
+@page bibliography:right {
+  @bottom-right { content: "Bibliography""\2003\007C\2003"counter(page) }
+}
+
+/* --------------------------------------------------------------------- */
+/* -------------------------- About/Colophon --------------------------- */
+/* --------------------------------------------------------------------- */
+
+section.abouttheauthor { page: abouttheauthor }
+
+@page abouttheauthor {
+  border-bottom: none;
+    @top-right { content: none }
+    @bottom-left { content: none }
+    @bottom-right { content: none }
+}
+
+section[data-type="colophon"] { page: colophon }
+
+@page colophon {
+  border-bottom: none;
+    @top-right { content: none }
+    @bottom-left { content: none }
+    @bottom-right { content: none }
+}
+
+
+@page toc:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page chapter:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page appendix:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page preface:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page glossary:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page bibliography:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+@page index:blank {
+  @bottom-left { content: none }
+  @bottom-right { content: none }
+}
+
 /* ------------------- PAGEBREAK HANDLING ------------------- */
 
 /* force a page break */
@@ -1213,3 +1236,66 @@ section[data-type="glossary"] dd { font-size: 9pt }
 div.hard-pagebreak {
   page-break-after: always;
 }
+
+
+/* PDF bookmarks */
+
+nav[data-type="toc"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+div[data-type="part"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="preface"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="foreword"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="chapter"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="appendix"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+section[data-type="sect1"] > h1 {
+  bookmark-level: 2;
+  bookmark-state: closed;
+}
+
+section[data-type="index"] > h1 {
+  bookmark-level: 1;
+  bookmark-state: closed;
+}
+
+div[data-type="part"] section[data-type="glossary"] { 
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+section[data-type="bibliography"] {
+  bookmark-level: 1;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark); 
+}
+
+section.abouttheauthor {
+  bookmark-level: 1;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark); 
+}
+
+
