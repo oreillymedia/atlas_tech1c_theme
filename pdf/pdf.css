@@ -1043,7 +1043,8 @@ section[data-type="index"] { page: index }
 
 @page index:left {
   @bottom-left {
-    content: counter(page)"\2003\007C\2003Index";
+    content: counter(page);
+    font-family: SourceSansPro, sans-serif;
   }
   @top-left-corner {
     border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
@@ -1061,7 +1062,8 @@ section[data-type="index"] { page: index }
 
 @page index:right {
   @bottom-right {
-    content: "Index\2003\007C\2003"counter(page);
+    content: counter(page);
+    font-family: SourceSansPro, sans-serif;
   }
   @top-right-corner {
     border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
@@ -1127,16 +1129,19 @@ section[data-type="glossary"] { page: glossary }
 }
   
 @page glossary:left {
-  @bottom-left { content: counter(page)"\2003\007C\2003""Glossary" }
+  @bottom-left { content: counter(page);
+      font-family: SourceSansPro, sans-serif;
+ }
   @top-left {
     content: string(term, first);
     font-size: 9pt;
-    font-family: "MyriadPro-SemiboldCond";
   }
 }
 
 @page glossary:right {
-  @bottom-right { content: "Glossary""\2003\007C\2003"counter(page) }
+  @bottom-right { content: counter(page);
+      font-family: SourceSansPro, sans-serif;
+ }
   @top-right {
     content: string(term, last);
     font-size: 9pt;
@@ -1170,11 +1175,15 @@ section[data-type="bibliography"] { page: bibliography }
 }
   
 @page bibliography:left {
-  @bottom-left { content: counter(page)"\2003\007C\2003""Bibliography" }
+  @bottom-left { content: counter(page);
+      font-family: SourceSansPro, sans-serif;
+ }
 }
 
 @page bibliography:right {
-  @bottom-right { content: "Bibliography""\2003\007C\2003"counter(page) }
+  @bottom-right { content: counter(page);
+      font-family: SourceSansPro, sans-serif;
+ }
 }
 
 /* --------------------------------------------------------------------- */
