@@ -393,7 +393,9 @@ section[data-type="foreword"] > h1,
 section[data-type="chapter"] > h1, 
 section[data-type="appendix"] > h1,
 section[data-type="index"] > h1,
-section[data-type="glossary"] > h1 {
+section[data-type="glossary"] > h1,
+section[data-type="colophon"] h1, 
+section.abouttheauthor h1  {
   font-family: 'Merriweather', serif;
   line-height: 22pt;
   margin-bottom: 0.9in;
