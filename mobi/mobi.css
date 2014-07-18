@@ -604,6 +604,27 @@ div.index ul li ul li {
     margin-left: 20px;
 }
 
+
+/* ----------------- Appendix ----------------- */
+section[data-type="appendix"] section[data-type="sect1"] h1 {
+    margin-bottom: 0;
+    padding:0px;
+}
+
+section[data-type="appendix"] section[data-type="sect1"] dl { 
+    font-size: 90%;
+    clear: both;
+     padding:0px;
+}   
+
+section[data-type="appendix"] section[data-type="sect1"] dt a { 
+ margin-top: -5px;
+ padding:0px;}
+
+section[data-type="appendix"] section[data-type="sect1"] dd p {
+ padding:0px;
+ margin-bottom: -5px;}
+
 /* ---------------------- Syntax Highlighting ---------------------- */
 
 /* Pygments with manni theme */
