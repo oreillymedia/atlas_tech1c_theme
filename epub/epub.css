@@ -130,6 +130,18 @@ section[data-type="dedication"] {
   padding-top: 100px;
 }
 
+section.preface[title="Dedication"] > div.titlepage h2.title { 
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+section.preface[title="Dedication"] p {
+  font-style: italic;
+  text-align: center;
+}
 /* ---------------------- table of contents ---------------------- */
 
 /* global styles for the table of contents */
