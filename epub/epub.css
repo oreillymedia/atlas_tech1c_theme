@@ -247,7 +247,9 @@ div[data-type="part"] > h1,
 section[data-type="preface"] > h1, 
 section[data-type="chapter"] > h1, 
 section[data-type="appendix"] > h1, 
-section[data-type="sect1"] h1 {
+section[data-type="sect1"] h1,
+section[data-type="bibliography"] h1,
+section[data-type="glossary"] h1 {
   font-family: serif;
   line-height: 120%;
   -webkit-hyphens: none;
