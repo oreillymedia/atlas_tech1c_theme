@@ -1166,6 +1166,27 @@ section[data-type="glossary"] dd p { font-size: 9pt }
 
 section[data-type="glossary"] dd { font-size: 9pt }
 
+/* ------------------------- Footnote settings ------------------------- */
+span[data-type="footnote"] {
+  -ah-float: footnote;
+  font-size: 8pt;
+  line-height: 10pt;
+  margin-left: 8pt;
+  margin-bottom: 3pt;
+  text-align: left;
+  text-indent: 0;
+}
+
+::footnote-call,
+::footnote-marker {
+  content: counter(footnote, decimal);
+  line-height: 5pt;
+}
+
+::footnote-call { font-size: 6pt }
+
+::footnote-marker { font-size: 7pt }
+
 /* --------------------------------------------------------------------- */
 /* --------------------------- Bibliography ---------------------------- */
 /* --------------------------------------------------------------------- */
