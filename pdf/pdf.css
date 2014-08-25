@@ -1261,6 +1261,50 @@ section[data-type="colophon"] { page: colophon }
   @bottom-right { content: none }
 }
 
+/* --------------------------------------------------------------------- */
+/* ----------------------- Styling for Comments ------------------------ */
+/* --------------------------------------------------------------------- */
+
+/* Sticky note style box for comment*/
+div[data-type="comment"] {
+	width: auto;
+	max-width: 80%;
+	background-color: #ffff99;
+	border: 0.25pt solid cmyk(0%,0%,0%,25%);
+	box-shadow: 1pt 1pt 1.5pt rgba(0,0,0,0.3);
+	margin: 5pt 0 15pt;
+	padding: 5pt;
+	display: table;
+	page-break-inside: avoid;
+	page-break-before: avoid;
+}
+
+/* Comment text */
+div[data-type="comment"] p {
+	font-family: "Lato";
+	font-size: 10pt;
+	line-height: 13pt;
+	text-align:left;
+	text-indent: 0;
+	margin: 0;
+	padding: 5pt 5pt 0;
+	border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
+	hyphens: none;
+}
+
+/* Comment ID */
+div.comment-identifier {
+	font-family: "BentonSans-Bold";
+	font-size: 8pt;
+	margin: 0 5pt 2pt;
+	padding: 0;
+	text-align:left;
+}
+
+/* remove <img> and <i> tags */
+div.comment-identifier img,
+div.comment-identifier i { display: none } 
+
 /* ------------------- PAGEBREAK HANDLING ------------------- */
 
 /* force a page break */
