@@ -702,14 +702,16 @@ section[data-type="appendix"] {
   counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote;
 }
 
-/* lists */
+/* --------------------------------------------------------------------- */
+/* ------------------------------- Lists ------------------------------- */
+/* --------------------------------------------------------------------- */
 
 ul, ol { /* bulleted and numbered lists */
   margin: 7pt 0 7pt .33in;
 }
 
 ul li, ol li {
-  font-family: SourceSansPro, sans-serif;
+  font-family: SourceSansPro, ArialUnicode;
   font-size: 9.5pt;
   margin-top: 3pt;
 }
@@ -719,7 +721,7 @@ dl { /* definition lists */
 }
 
 dt { /* definition list terms */
-  font-family: SourceSansPro-Semibold, sans-serif;
+  font-family: SourceSansPro-Semibold;
   font-size: 9.5pt;
   line-height: 14pt;
   margin-top: 7pt;
@@ -730,7 +732,9 @@ dd { /* definition list descriptions */
   margin-left: 0.1667in;
 }
 
-/* tables */
+/* --------------------------------------------------------------------- */
+/* ------------------------------ Tables ------------------------------- */
+/* --------------------------------------------------------------------- */
 
 table {
   margin: 12pt 0;
