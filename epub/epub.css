@@ -303,13 +303,13 @@ section[data-type="sect1"] h1 { /* A-level headings */
 }
 
 section[data-type="sect2"] h2 { /* B-level headings */
-  font-size: 1.0.9em;
+  font-size: 1.25em;
   margin-top: 30px;
   margin-bottom: 10px;
 }
 
 section[data-type="sect3"] h3 { /* C-level headings */
-  font-size: 1.0.9em;
+  font-size: 1em;
   margin-top: 20px;
   margin-bottom: 10px;
 }
