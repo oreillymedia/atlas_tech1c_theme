@@ -1378,4 +1378,18 @@ section.abouttheauthor {
   bookmark-label: attr(data-pdf-bookmark); 
 }
 
+/* --------------------------------------------------------------------- */
+/* -------------------------- Custom Classes --------------------------- */
+/* --------------------------------------------------------------------- */
 
+/* Page-breaking */
+.pagebreak-before { page-break-before: always }
+.pagebreak-after { page-break-after: always }
+
+/* Variable Widths */
+/* Do not add the "width" attribute directly to an HTML tag */
+/* Use one of these instead */
+.width-25 { width: 25% }
+.width-50 { width: 50% }
+.width-75 { width: 75% }
+.width-100 { width: 100% }
