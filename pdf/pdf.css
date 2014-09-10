@@ -98,7 +98,7 @@ h1 + p, h2 + p, h3 + P {
 }
 
 p, dd { /* general text styles */
-  font-family: 'SourceSansPro', sans-serif;
+  font-family: 'SourceSansPro', sans-serif, 'ArialUnicodeMS';
   text-indent: 0.167in;
   font-size: 9.5pt;
   line-height: 13pt;
@@ -384,6 +384,12 @@ nav[data-type="toc"] li[data-type="appendix"]::marker {
   counter-increment: AppendixNumberTOC;
   margin-right: 5pt;
 }
+
+/*hides footnotes from appearing in the TOC*/
+nav[data-type="toc"] span[data-type="footnote"] {
+ display: none;
+}
+
 
 /* preface, chapter, and appendix headings */
 
@@ -1167,7 +1173,8 @@ section[data-type="glossary"] dd p { font-size: 9pt }
 section[data-type="glossary"] dd { font-size: 9pt }
 
 /* ------------------------- Footnote settings ------------------------- */
-span[data-type="footnote"] {
+span[data-type="footnote"],
+h1 > span[data-type="footnote"] {
   -ah-float: footnote;
   font-size: 8pt;
   line-height: 10pt;
@@ -1175,6 +1182,8 @@ span[data-type="footnote"] {
   margin-bottom: 3pt;
   text-align: left;
   text-indent: 0;
+  font-family: SourceSansPro, sans-serif;
+  font-weight: normal;
 }
 
 ::footnote-call,
