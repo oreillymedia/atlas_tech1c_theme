@@ -960,7 +960,6 @@ pre { /* code blocks */
   font-size: 9pt;
   line-height: 11pt;
   margin: 12pt 0 12pt 0.167in;
-  white-space: pre-wrap;
   -ah-ignore-leading-newline: true;
 }
 
