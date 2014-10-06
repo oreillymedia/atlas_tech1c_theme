@@ -1105,7 +1105,10 @@ div[data-type="index"] {
 }
 
 a[data-type="index:locator"] { content: target-counter(attr(href, url), page); }
-/* Need something for roman numerals */
+
+/*index markers as roman numrals*/
+a[data-type="index:locator"][data-xref-pagenum-style="lower-roman"] 
+{ content: target-counter(attr(href, url), page, lower-roman) }
 
 section[data-type="index"] ul {
   margin: 0;
