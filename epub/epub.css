@@ -462,6 +462,18 @@ a.co img {
   margin: 0;
 }
 
+dl.calloutlist {
+  text-align: justify;
+}
+
+dl.calloutlist dt {
+  position: relative;
+  line-height: 0;
+  top: 5pt;
+  margin-bottom: -4pt;
+  page-break-after: avoid;
+}
+
 /* ---------------------- sidebars ---------------------- */
 div.sidebar {  background-color: #F7F7F7;
   border: 1px solid #d8d8d8;
