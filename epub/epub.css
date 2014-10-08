@@ -456,6 +456,12 @@ figcaptio span.label {
 font-weight: bold;
 font-style: normal;}
 
+/* callouts */
+
+a.co img {
+  margin: 0;
+}
+
 /* ---------------------- sidebars ---------------------- */
 div.sidebar {  background-color: #F7F7F7;
   border: 1px solid #d8d8d8;
