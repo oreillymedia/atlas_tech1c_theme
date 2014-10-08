@@ -122,6 +122,12 @@ a {
   text-decoration: none;
 }
 
+/* callouts */
+
+a.co img {
+  margin: 0;
+}
+
 /* reset counters */
 
 /* counters add auto-numbering to elements in the book. 
