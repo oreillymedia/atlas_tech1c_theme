@@ -3,7 +3,9 @@
 /* O'Reilly Media, 2014; version 4.0.0 */
 
 /* reset */
-
+/* ------------------------ Kindle KF8 Specific Styles ------------------------ */
+@media amzn-kf8 {
+  
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,
 p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del,
 dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub,
@@ -740,6 +742,71 @@ pre code.p { color: #000000 } /* Punctuation */
 pre code.x { color: #FF0066 } /* Other */
 
 
+}
 
 
 
+
+/* ----------------------- Kindle Legacy Specific Styles ---------------------- */
+@media amzn-mobi {
+
+figure caption {
+    text-align: center;
+    font-size: 75%;
+    font-style: italic;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+dl {
+  margin-top: 0.5em;
+}
+
+dl dt {
+  display: block;
+  margin-top: 0.5em;
+}
+
+aside {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div[data-type="note"], 
+div[data-type="warning"] {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+div[data-type="note"] h1, 
+div[data-type="warning"] h1 {
+  font-style: italic;
+  text-align: center;
+}
+
+div[data-type="example"] h5 {
+  margin-top: 1em;
+}
+
+div.variable_list_term {
+    padding-top: 15px !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: left;
+    font-style: italic;
+}
+
+blockquote.variable_list_definition {
+    text-align: left;
+    font-style: normal;
+    margin: 5px 0 0 40px !important;
+    font-size: 100%;
+    line-height: 100%;
+}
+
+}
