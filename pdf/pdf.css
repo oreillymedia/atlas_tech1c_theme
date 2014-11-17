@@ -27,6 +27,11 @@ figure[data-type="cover"] img {
   top: 0;
 }
 
+body[data-type="book"] > figure[data-type="cover"] + section {
+	counter-reset: page 1;
+	page-break-before: right;
+}
+
 @page cover {
   margin: 0;
   padding: 0;
