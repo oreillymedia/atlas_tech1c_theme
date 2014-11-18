@@ -237,6 +237,60 @@ section[data-type="dedication"] {
   padding-top: 96pt;
 }
 
+/* praise */
+
+section[data-type="dedication"].praise h2.title {
+  display: block;
+  font-family: "MyriadPro-SemiboldCond";
+  font-weight: 600;
+  font-size: 20pt;
+  text-align: center;
+  margin-bottom: .75in;
+  margin-top: 0;
+}
+
+section[data-type="dedication"].praise blockquote {
+  hyphens: none;
+  margin: 0 0 20pt 0;
+}
+
+section[data-type="dedication"].praise blockquote p {
+  font-size: 10pt;
+  margin-bottom: 4pt;
+  text-align: right;
+  font-style: normal;
+}
+
+section[data-type="dedication"].praise blockquote span.attribution {
+  display: inline;
+  margin: 0;
+  font-style: italic;
+}
+
+section[data-type="dedication"].praise blockquote div.attribution {
+  margin-left: 30%;
+}
+
+/*--Begin support for emphasis in praise text and attributions--*/
+
+section[data-type="dedication"].praise blockquote span.attribution em.citetitle {
+  font-style: normal;
+}
+
+section[data-type="dedication"].praise blockquote span.attribution em.citetitle span.emphasis em {
+  font-style: italic;
+}
+
+section[data-type="dedication"].praise blockquote em.p span.emphasis em {
+  font-style: italic;
+}
+
+section[data-type="dedication"].praise blockquote p span.emphasis em {
+  font-style: italic;
+}
+
+/*--End support for emphasis in praise text and attributions--*/
+
 /* table of contents */
 
 /* paged media */
@@ -617,6 +671,13 @@ section[data-type="foreword"] {
   page-break-before: right; /* forces the foreword to start on a right hand page */
   counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
 }
+
+p.byline {
+	text-align: right;
+	font-style: italic;
+}
+
+p.byline:before { content: "\2014 " }
 
 /* parts */
 
