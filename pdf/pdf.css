@@ -861,6 +861,18 @@ table caption:before {
   margin-top: 0;
 }
 
+section[data-type="preface"] table caption:before {
+  content: "TABLE P-"counter(TableNumber)". ";
+}
+
+section[data-type="foreword"] table caption:before {
+  content: "TABLE F-"counter(TableNumber)". ";
+}
+
+section[data-type="appendix"] table caption:before {
+  content: "TABLE " counter(AppendixNumber)"-"counter(TableNumber)". ";
+}
+
 tr {
   border-width: 0;
 }
@@ -1097,6 +1109,18 @@ div[data-type="example"] h5:before {
   margin-top: 0;
 }
 
+section[data-type="preface"] div[data-type="example"] h5:before {
+  content: "EXAMPLE P-"counter(ExampleNumber)". ";
+}
+
+section[data-type="foreword"] div[data-type="example"] h5:before {
+  content: "EXAMPLE F-"counter(ExampleNumber)". ";
+}
+
+section[data-type="appendix"] div[data-type="example"] h5:before {
+  content: "EXAMPLE " counter(AppendixNumber)"-"counter(ExampleNumber)". ";
+}
+
 div[data-type="example"] pre {
   margin-left: 0;
 }
@@ -1153,6 +1177,18 @@ div[data-type="equation"] h5:before {
   content: "EQUATION " counter(ChapterNumber) "-" counter(EquationNumber);
   display: block;
   margin-bottom: 7.2pt;
+}
+
+section[data-type="preface"] div[data-type="equation"] h5:before {
+  content: "EQUATION P-"counter(EquationNumber)". ";
+}
+
+section[data-type="foreword"] div[data-type="equation"] h5:before {
+  content: "EQUATION F-"counter(EquationNumber)". ";
+}
+
+section[data-type="appendix"] div[data-type="equation"] h5:before {
+  content: "EQUATION " counter(AppendixNumber)"-"counter(EquationNumber)". ";
 }
 
 /* --------------------------------------------------------------------- */
