@@ -7,3 +7,5 @@
 
 /* Suppress cover image */
 body[data-type="book"] > figure[data-type="cover"] { display: none }
+
+figure[data-type="cover"] { page: blank }
