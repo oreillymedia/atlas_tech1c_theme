@@ -369,7 +369,7 @@ nav[data-type="toc"] li[data-type="part"] {
   page-break-after: avoid;
 }
 
-nav[data-type="toc"] li[data-type="part"] {  margin-top: 18pt;}
+nav[data-type="toc"] li[data-type="part"] {  margin-top: 24.4pt;}
 }
 
 nav[data-type="toc"] li[data-type="preface"],
@@ -833,8 +833,9 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
   word-wrap: break-word;
 }
 
-/* figures */
-
+/* --------------------------------------------------------------------- */
+/* ------------------------------ Figures ------------------------------ */
+/* --------------------------------------------------------------------- */
 figure {
   display: block;
   border-top: 0.5pt solid cmyk(0%,0%,0%,100%);
@@ -842,7 +843,6 @@ figure {
   margin: 20pt -1.625in;
   padding: 8.64pt 1.625in;
   width: 4.375in;
-  clear: both;
   text-align: center; /* in AH Land, this is how you center an img in a block */
   overflow: auto;
 }
