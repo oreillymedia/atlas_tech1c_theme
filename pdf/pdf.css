@@ -16,6 +16,7 @@
 
 head title { display: none; }
 
+/*cover*/
 figure[data-type="cover"] {
   page: cover;
 }
@@ -84,8 +85,9 @@ body[data-type="book"] > figure[data-type="cover"] + section {
   @top-left { content: none; }
 }
 
-/* general blocks */
-
+/* -------------------------------------------------------------- */
+/* ------------------------ General Blocks ---------------------- */
+/* -------------------------------------------------------------- */
 li > p, dd p,
 section[data-type="titlepage"] p,
 section[data-type="copyright-page"] p,
@@ -111,8 +113,9 @@ p, dd { /* general text styles */
   text-align: justify;
 }
 
-/* global styles */
-
+/* -------------------------------------------------------------- */
+/* ------------------------- Global Styles ---------------------- */
+/* -------------------------------------------------------------- */
 body {
   -ah-kerning-mode: pair;
   -ah-hyphenate-hyphenated-word: false;
@@ -127,26 +130,6 @@ a {
   text-decoration: none;
 }
 
-/* callouts */
-
-a.co img {
-  margin: 0;
-}
-
-dl.calloutlist {
-  text-align: justify;
-}
-
-dl.calloutlist dt {
-  position: relative;
-  line-height: 0;
-  top: 5pt;
-  margin-bottom: -4pt;
-  page-break-after: avoid;
-}
-
-/* reset counters */
-
 /* counters add auto-numbering to elements in the book. 
    This reset initiates the counters, enabling them 
    to begin numbering correctly. */
@@ -155,8 +138,10 @@ body[data-type="book"] {
   counter-reset: page 1 PartNumber ChapterNumber AppendixNumber FigureNumber TableNumber ExampleNumber EquationNumber footnote;
 }
 
-/* frontmatter */
 
+/* -------------------------------------------------------------- */
+/* -------------------------- Titlepage ------------------------- */
+/* -------------------------------------------------------------- */
 section[data-type="halftitlepage"], 
 section[data-type="titlepage"] {
   page: blank;
@@ -192,9 +177,6 @@ section[data-type="titlepage"] h1 {
   font-weight: normal;
 }
 
-/* titlepage text font */
-
-/* styling and positioning for author names */
 
 section[data-type="titlepage"] p[data-type="author"] {
   font-family: Merriweather, serif, ArialUnicodeMS;
@@ -202,8 +184,10 @@ section[data-type="titlepage"] p[data-type="author"] {
   margin-top: 66pt;
 }
 
-/* copyright page */
 
+/* -------------------------------------------------------------- */
+/* ------------------------ Copyright Page -----------------------*/
+/* -------------------------------------------------------------- */
 section[data-type="copyright-page"] {
   page: blank;
   page-break-after: always;
@@ -226,7 +210,9 @@ section[data-type="copyright-page"] p {
 section[data-type="copyright-page"] p.isbn {
 }
 
-/* dedication */
+/* -------------------------------------------------------------- */
+/* -------------------------- Dedication -------------------------*/
+/* -------------------------------------------------------------- */
 
 section[data-type="dedication"] {
   font-family: 'Crimson-Italic', serif, ArialUnicodeMS;
@@ -237,8 +223,9 @@ section[data-type="dedication"] {
   padding-top: 96pt;
 }
 
-/* praise */
-
+/* -------------------------------------------------------------- */
+/* --------------------------- Praise ----------------------------*/
+/* -------------------------------------------------------------- */
 section[data-type="dedication"].praise h2.title {
   display: block;
   font-family: "MyriadPro-SemiboldCond", ArialUnicodeMS;
@@ -291,9 +278,10 @@ section[data-type="dedication"].praise blockquote p span.emphasis em {
 
 /*--End support for emphasis in praise text and attributions--*/
 
-/* table of contents */
+/* -------------------------------------------------------------- */
+/* ---------------------- Table of Contents ----------------------*/
+/* -------------------------------------------------------------- */
 
-/* paged media */
 @page toc:first {
   @bottom-right-corner {
     content: counter(page, lower-roman);
@@ -371,7 +359,8 @@ nav[data-type="toc"] ol { margin-left: 0; }
 nav[data-type="toc"] li[data-type="chapter"],
 nav[data-type="toc"] li[data-type="appendix"],
 nav[data-type="toc"] li[data-type="glossary"],
-nav[data-type="toc"] li[data-type="index"]
+nav[data-type="toc"] li[data-type="index"],
+nav[data-type="toc"] li[data-type="part"]
 /*nav[data-type="toc"] ul li.preface.afterword*/ {
   font-family: SourceSansPro-Semibold, sans-serif, ArialUnicodeMS;
   font-size: 9.5pt;
@@ -379,6 +368,9 @@ nav[data-type="toc"] li[data-type="index"]
   margin-top: 14.4pt;
   display: list-item;
   page-break-after: avoid;
+}
+
+nav[data-type="toc"] li[data-type="part"] {  margin-top: 18pt;}
 }
 
 nav[data-type="toc"] li[data-type="preface"],
@@ -393,7 +385,8 @@ nav[data-type="toc"] li[data-type="foreword"] {
 nav[data-type="toc"] li[data-type="chapter"] > a:after,
 nav[data-type="toc"] li[data-type="appendix"] > a:after,
 nav[data-type="toc"] li[data-type="index"] > a:after,
-nav[data-type="toc"] li[data-type="glossary"] > a:after
+nav[data-type="toc"] li[data-type="glossary"] > a:after,
+nav[data-type="toc"] li[data-type="part"] > a:after
 /* nav[data-type="toc"] ul li.preface.afterword a:after*/ {
   content: leader(space) " " target-counter(attr(href, url), page);
   font-weight: 600;
@@ -467,7 +460,9 @@ nav[data-type="toc"] span[data-type="footnote"] {
  display: none;
 }
 
-
+/* -------------------------------------------------------------- */
+/* --------------------------- Headers ---------------------------*/
+/* -------------------------------------------------------------- */
 /* preface, chapter, and appendix headings */
 
 /* shared styles for all chapter-level headings */
@@ -526,7 +521,9 @@ section[data-type="appendix"] > h1:after {
   content: counter(AppendixNumber, upper-alpha);
 }
 
-/* section headings */
+/* -------------------------------------------------------------- */
+/* ---------------------- Section Headings -----------------------*/
+/* -------------------------------------------------------------- */
 
 h1, h2, h3, h4, h5, h6 {
   hyphens: none;
@@ -562,7 +559,10 @@ section[data-type="sect3"] > h3 { /* C-level headings */
   text-transform: uppercase;
 }
 
-/* prefaces */
+
+/* -------------------------------------------------------------- */
+/* --------------------------- Preface ---------------------------*/
+/* -------------------------------------------------------------- */
 
 section[data-type="preface"] > h1 {
   font-size: 16pt;
@@ -617,7 +617,9 @@ section[data-type="preface"] {
   counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote; /* setting auto-numbers for figures, tables, and footnotes to start at 1 */
 }
 
-/* forewords */
+/* -------------------------------------------------------------- */
+/* --------------------------- Forward ---------------------------*/
+/* -------------------------------------------------------------- */
 
 section[data-type="foreword"] > h1 {
   font-size: 16pt;
@@ -679,7 +681,9 @@ p.byline {
 
 p.byline:before { content: "\2014 " }
 
-/* parts */
+/* -------------------------------------------------------------- */
+/* --------------------------- Parts -----------------------------*/
+/* -------------------------------------------------------------- */
 
 div[data-type="part"] {
   page: blank;
@@ -707,7 +711,9 @@ div[data-type="part"] > h1:before {
   margin-bottom: 34pt;
 }
 
-/* chapters */
+/* -------------------------------------------------------------- */
+/* --------------------------- Chapters --------------------------*/
+/* -------------------------------------------------------------- */
 
 @page chapter:first {
   @top-right {
@@ -746,85 +752,6 @@ div[data-type="part"] > h1:before {
   @top-left {
     content: none;
   }
-}
-
-/* page number resets to 1 on the first chapter */
-
-section.pagenumrestart {
-  counter-reset: page 1;
-}
-
-section[data-type="chapter"] {
-  page: chapter;
-  page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: TableNumber FigureNumber ExampleNumber EquationNumber footnote;
-}
-
-/* appendixes */
-
-@page appendix:first {
-  @bottom-left {
-    content: normal;
-  }
-}
-
-@page appendix:left {
-  @bottom-left {
-    content: counter(page);
-  }
-  @bottom-right {
-    content: "Appendix "counter(AppendixNumber, upper-alpha)", "string(ChapterTitle);
-  }
-}
-
-@page appendix:right {
-  @bottom-right {
-    content: counter(page);
-  }
-  @bottom-left {
-    content: string(SectionTitle);
-  }
-}
-
-section[data-type="appendix"] {
-  page: appendix;
-  page-break-before: right; /* forces new chapters to start on a right hand page */
-  counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote;
-}
-
-/* --------------------------------------------------------------------- */
-/* ------------------------------- Lists ------------------------------- */
-/* --------------------------------------------------------------------- */
-
-ul, ol { /* bulleted and numbered lists */
-  margin: 7pt 0 7pt .33in;
-}
-
-ul li, ol li {
-  font-family: SourceSansPro, ArialUnicodeMS;
-  font-size: 9.5pt;
-  margin-top: 3pt;
-}
-
-dl { /* definition lists */
-  margin-bottom: 7pt;
-}
-
-dt { /* definition list terms */
-  font-family: SourceSansPro-Semibold, ArialUnicodeMS;
-  font-size: 9.5pt;
-  line-height: 14pt;
-  margin-top: 7pt;
-}
-
-dd { /* definition list descriptions */
-  text-indent: 0;
-  margin-left: 0.1667in;
-}
-
-/* turning off justification for lists*/
-ol li ul li p{ 
- text-align: left;
 }
 
 /* --------------------------------------------------------------------- */
@@ -975,7 +902,9 @@ dt img {
 
 figure div.border-box { display: inline }
 
-/* sidebars */
+/* -------------------------------------------------------------- */
+/* -------------------------- Sidebars ---------------------------*/
+/* -------------------------------------------------------------- */
 
 aside[data-type="sidebar"] { /* sidebar containers */
   background-color: cmyk(0%,0%,0%,15%);
@@ -1012,7 +941,9 @@ aside dt {
   font-weight: bold;
 }
   
-/* admonitions */
+/* -------------------------------------------------------------- */
+/* ------------------------ Admonitions --------------------------*/
+/* -------------------------------------------------------------- */
 
 div[data-type="note"], 
 div[data-type="warning"],
@@ -1071,7 +1002,9 @@ div[data-type="important"] pre {
   margin: 0 0 6pt 4pt;
 } 
 
-/* code */
+/* -------------------------------------------------------------- */
+/* ---------------------------- Code -----------------------------*/
+/* -------------------------------------------------------------- */
 
 pre, code { /* monospace font for both code blocks and inline code */
   font-family: 'UbuntuMono', monospace, ArialUnicodeMS;
@@ -1124,7 +1057,10 @@ section[data-type="appendix"] div[data-type="example"] h5:before {
 div[data-type="example"] pre {
   margin-left: 0;
 }
-/* blockquote */
+
+/* -------------------------------------------------------------- */
+/* ------------------------ Blockquotes --------------------------*/
+/* -------------------------------------------------------------- */
 
 blockquote {
   margin: 15pt 0.1667in;
@@ -1141,7 +1077,9 @@ p[data-type="attribution"] {
   margin-top: 6pt;
 }
 
-/* math */
+/* -------------------------------------------------------------- */
+/* ---------------------------- Math -----------------------------*/
+/* -------------------------------------------------------------- */
 
 div[data-type="equation"] {
   margin: 12pt 0 12pt 0.167in;
@@ -1190,6 +1128,108 @@ section[data-type="foreword"] div[data-type="equation"] h5:before {
 section[data-type="appendix"] div[data-type="equation"] h5:before {
   content: "EQUATION " counter(AppendixNumber)"-"counter(EquationNumber)". ";
 }
+
+/* -------------------------------------------------------------- */
+/* ----------------------- Counter Reset -------------------------*/
+/* -------------------------------------------------------------- */
+
+section.pagenumrestart {
+  counter-reset: page 1;
+}
+
+section[data-type="chapter"] {
+  page: chapter;
+  page-break-before: right; /* forces new chapters to start on a right hand page */
+  counter-reset: TableNumber FigureNumber ExampleNumber EquationNumber footnote;
+}
+
+/* -------------------------------------------------------------- */
+/* ------------------------ Appendicies --------------------------*/
+/* -------------------------------------------------------------- */
+@page appendix:first {
+  @bottom-left {
+    content: normal;
+  }
+}
+
+@page appendix:left {
+  @bottom-left {
+    content: counter(page);
+  }
+  @bottom-right {
+    content: "Appendix "counter(AppendixNumber, upper-alpha)", "string(ChapterTitle);
+  }
+}
+
+@page appendix:right {
+  @bottom-right {
+    content: counter(page);
+  }
+  @bottom-left {
+    content: string(SectionTitle);
+  }
+}
+
+section[data-type="appendix"] {
+  page: appendix;
+  page-break-before: right; /* forces new chapters to start on a right hand page */
+  counter-reset: FigureNumber TableNumber ExampleNumber EquationNumber footnote;
+}
+
+/* --------------------------------------------------------------------- */
+/* ------------------------------- Lists ------------------------------- */
+/* --------------------------------------------------------------------- */
+
+ul, ol { /* bulleted and numbered lists */
+  margin: 7pt 0 7pt .33in;
+}
+
+ul li, ol li {
+  font-family: SourceSansPro, ArialUnicodeMS;
+  font-size: 9.5pt;
+  margin-top: 3pt;
+}
+
+dl { /* definition lists */
+  margin-bottom: 7pt;
+}
+
+dt { /* definition list terms */
+  font-family: SourceSansPro-Semibold, ArialUnicodeMS;
+  font-size: 9.5pt;
+  line-height: 14pt;
+  margin-top: 7pt;
+}
+
+dd { /* definition list descriptions */
+  text-indent: 0;
+  margin-left: 0.1667in;
+}
+
+/* turning off justification for lists*/
+ol li ul li p{ 
+ text-align: left;
+}
+
+
+/* callouts */
+
+a.co img {
+  margin: 0;
+}
+
+dl.calloutlist {
+  text-align: justify;
+}
+
+dl.calloutlist dt {
+  position: relative;
+  line-height: 0;
+  top: 5pt;
+  margin-bottom: -4pt;
+  page-break-after: avoid;
+}
+
 
 /* --------------------------------------------------------------------- */
 /* ------------------------------- Index ------------------------------- */
@@ -1323,7 +1363,9 @@ section[data-type="glossary"] dd p { font-size: 9pt }
 
 section[data-type="glossary"] dd { font-size: 9pt }
 
-/* ------------------------- Footnote settings ------------------------- */
+/* -------------------------------------------------------------- */
+/* --------------------- Footnote Settings ---------------------- */
+/* -------------------------------------------------------------- */
 span[data-type="footnote"],
 h1 > span[data-type="footnote"] {
   -ah-float: footnote;
@@ -1452,7 +1494,9 @@ div[data-type="comment"] p {
 	hyphens: none;
 }
 
-/* Comment ID */
+/* -------------------------------------------------------------- */
+/* ------------------------- Comments ----------------------------*/
+/* -------------------------------------------------------------- */
 div.comment-identifier {
 	font-family: "BentonSans-Bold";
 	font-size: 8pt;
@@ -1465,16 +1509,10 @@ div.comment-identifier {
 div.comment-identifier img,
 div.comment-identifier i { display: none } 
 
-/* ------------------- PAGEBREAK HANDLING ------------------- */
 
-/* force a page break */
-
-div.hard-pagebreak {
-  page-break-after: always;
-}
-
-
-/* PDF bookmarks */
+/* -------------------------------------------------------------- */
+/* ----------------------- PDF Bookmarks -------------------------*/
+/* -------------------------------------------------------------- */
 
 nav[data-type="toc"] > h1 {
   bookmark-level: 1;
@@ -1537,7 +1575,11 @@ section.abouttheauthor {
 /* --------------------------------------------------------------------- */
 /* -------------------------- Custom Classes --------------------------- */
 /* --------------------------------------------------------------------- */
+/* force a page break */
 
+div.hard-pagebreak {
+  page-break-after: always;
+}
 /* Page-breaking */
 .pagebreak-before { page-break-before: always }
 .pagebreak-after { page-break-after: always }
