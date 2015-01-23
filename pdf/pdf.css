@@ -360,8 +360,7 @@ nav[data-type="toc"] li[data-type="chapter"],
 nav[data-type="toc"] li[data-type="appendix"],
 nav[data-type="toc"] li[data-type="glossary"],
 nav[data-type="toc"] li[data-type="index"],
-nav[data-type="toc"] li[data-type="part"]
-/*nav[data-type="toc"] ul li.preface.afterword*/ {
+nav[data-type="toc"] li[data-type="part"] {
   font-family: SourceSansPro-Semibold, sans-serif, ArialUnicodeMS;
   font-size: 9.5pt;
   font-weight: 600;
@@ -413,7 +412,7 @@ nav[data-type="toc"] li[data-type="appendix"] li[data-type="sect2"] { /* and app
 }
 
 nav[data-type="toc"] li[data-type="part"]:before {
-  content: "Part " counter(PartNumberTOC, upper-roman) ".\2003";
+  content: "PART " counter(PartNumberTOC, upper-roman) ".\2003";
   counter-increment: PartNumberTOC;
 }
 
