@@ -1519,52 +1519,75 @@ div.comment-identifier img,
 div.comment-identifier i { display: none } 
 
 
-/* -------------------------------------------------------------- */
-/* ----------------------- PDF Bookmarks -------------------------*/
-/* -------------------------------------------------------------- */
+/* --------------------------------------------------------------------- */
+/* --------------------------- PDF Bookmarks --------------------------- */
+/* --------------------------------------------------------------------- */
+/* revise these for HTMLBook */
 
-nav[data-type="toc"] > h1 {
+figure[data-type="cover"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: "Cover";
 }
 
-div[data-type="part"] > h1 {
+section[data-type="copyright.page"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: "Copyright"; 
 }
 
-section[data-type="preface"] > h1 {
+nav[data-type="toc"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: "Table of Contents"; 
 }
 
-section[data-type="foreword"] > h1 {
+section[data-type="foreword"] {
+  bookmark-level: 1; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+section[data-type="preface"] {
+  bookmark-level: 1; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+div[data-type="part"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
 }
 
-section[data-type="chapter"] > h1 {
+/* ---------- Bookmark logic for titles that don't have parts ---------- */
+
+section[data-type="chapter"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
 }
 
-section[data-type="appendix"] > h1 {
+section[data-type="sect1"] { 
+  bookmark-level: 2; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+section[data-type="sect2"] { 
+  bookmark-level: 3; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+section[data-type="appendix"] {
   bookmark-level: 1;
   bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
 }
 
-section[data-type="sect1"] > h1 {
-  bookmark-level: 2;
-  bookmark-state: closed;
-}
-
-section[data-type="index"] > h1 {
+section[data-type="glossary"] {
   bookmark-level: 1;
-  bookmark-state: closed;
-}
-
-div[data-type="part"] section[data-type="glossary"] { 
-  bookmark-level: 2;
   bookmark-state: closed;
   bookmark-label: attr(data-pdf-bookmark);
 }
@@ -1575,10 +1598,62 @@ section[data-type="bibliography"] {
   bookmark-label: attr(data-pdf-bookmark); 
 }
 
+section[data-type="index"] {
+  bookmark-level: 1;
+  bookmark-state: closed;
+  bookmark-label: "Index"; 
+}
+
+section[data-type="afterword"] {
+  bookmark-level: 1;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark); 
+}
+
 section.abouttheauthor {
   bookmark-level: 1;
   bookmark-state: closed;
   bookmark-label: attr(data-pdf-bookmark); 
+}
+
+/* ----------- Bookmark logic for titles that do have parts: ----------- */
+/* ------- chapters, appendixes, glossaries, sect1s, and sect2s -------- */
+/* --------------- within a part are bumped down a level --------------- */
+
+div[data-type="part"] section[data-type="chapter"] {
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+div[data-type="part"] section[data-type="sect1"] { 
+  bookmark-level: 3; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+div[data-type="part"] section[data-type="sect2"] { 
+  bookmark-level: 4; 
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+div[data-type="part"] section[data-type="afterword"] {
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+} 
+
+div[data-type="part"] section[data-type="appendix"] { 
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
+}
+
+div[data-type="part"] section[data-type="glossary"] { 
+  bookmark-level: 2;
+  bookmark-state: closed;
+  bookmark-label: attr(data-pdf-bookmark);
 }
 
 /* --------------------------------------------------------------------- */
