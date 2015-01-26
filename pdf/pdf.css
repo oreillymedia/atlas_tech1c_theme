@@ -901,6 +901,16 @@ dt img {
 
 figure div.border-box { display: inline }
 
+/*figures in tables*/
+table figure {
+ border-top: 0;
+ border-bottom: 0;
+ display: inline;
+ margin-bottom: 12pt;
+ text-align: center;
+ width: auto;
+}
+
 /* -------------------------------------------------------------- */
 /* -------------------------- Sidebars ---------------------------*/
 /* -------------------------------------------------------------- */
