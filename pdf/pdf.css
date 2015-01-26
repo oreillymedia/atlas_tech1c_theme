@@ -412,7 +412,7 @@ nav[data-type="toc"] li[data-type="appendix"] li[data-type="sect2"] { /* and app
 }
 
 nav[data-type="toc"] li[data-type="part"]:before {
-  content: "PART " counter(PartNumberTOC, upper-roman) ".\2003";
+  content: "PART " counter(PartNumberTOC, upper-roman) ":";
   counter-increment: PartNumberTOC;
 }
 
