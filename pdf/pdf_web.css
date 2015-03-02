@@ -1,2 +1,8 @@
 @import url('pdf.css');
 @import url('syntax.css');
+
+
+
+/* hide print URLs in Web PDF */
+
+span.print_url_in_parens { display: none }
