@@ -909,6 +909,24 @@ table figure {
  width: auto;
 }
 
+/*fullpage figures*/
+figure.fullpage  {
+ padding: 0;
+ margin-left: -22pt;
+ border-top: 0;
+ border-bottom: 0;
+ max-width: 100%;
+}
+
+figure.fullpage img { 
+  max-width: 7in;
+}
+
+figure.fullpage figcaption {
+  -ah-float: none; 
+  display: none;
+}
+
 /* -------------------------------------------------------------- */
 /* -------------------------- Sidebars ---------------------------*/
 /* -------------------------------------------------------------- */
