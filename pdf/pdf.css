@@ -912,7 +912,7 @@ table figure {
 /*fullpage figures*/
 figure.fullpage  {
  padding: 0;
- margin-left: -22pt;
+ margin-left: -24pt;
  border-top: 0;
  border-bottom: 0;
  max-width: 100%;
