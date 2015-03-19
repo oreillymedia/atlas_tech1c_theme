@@ -157,7 +157,8 @@ section[data-type="titlepage"] h1 {
 }
 
 section[data-type="halftitlepage"] h2, 
-section[data-type="titlepage"] h2 {
+section[data-type="titlepage"] h2,
+section[data-type="titlepage"] p.subtitle {
   font-family: SourceSansPro-Semibold, ArialUnicodeMS; 
   font-size: 13pt;
   text-align: left;
