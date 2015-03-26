@@ -1269,16 +1269,16 @@ section[data-type="index"] { page: index }
     font-family: SourceSansPro, sans-serif, ArialUnicodeMS;
   }
   @top-left-corner {
-    border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: -6pt 0 0 -6pt;
+    border-left: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: -9pt 0 0 -9pt;
   }
   @left-top {
-  border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: -2pt 0 -2pt -6pt;
+  border-left: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: -2pt 0 -2pt -9pt;
   }
   @bottom-left-corner {
-  border-left: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: 0 0 -6pt -6pt;
+  border-left: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: 0 0 -9pt -9pt;
   }
 }
 
@@ -1288,16 +1288,16 @@ section[data-type="index"] { page: index }
     font-family: SourceSansPro, sans-serif, ArialUnicodeMS;
   }
   @top-right-corner {
-    border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: -6pt -6pt 0 0;
+    border-right: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: -9pt -9pt 0 0;
   }
   @right-top {
-  border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: -2pt -6pt -2pt 0;
+  border-right: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: -2pt -9pt -2pt 0;
   }
   @bottom-right-corner {
-  border-right: solid 20.4pt cmyk(0%,0%,0%,65%);
-  margin: 0 -6pt -6pt 0;
+  border-right: solid 23.4pt cmyk(0%,0%,0%,65%);
+  margin: 0 -9pt -9pt 0;
   }
 }
 
