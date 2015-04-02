@@ -1548,7 +1548,7 @@ figure[data-type="cover"] {
   bookmark-label: "Cover";
 }
 
-section[data-type="copyright.page"] {
+section[data-type="copyright-page"] {
   bookmark-level: 1;
   bookmark-state: closed;
   bookmark-label: "Copyright"; 
