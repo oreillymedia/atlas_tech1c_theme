@@ -1,8 +1,10 @@
 @import url('pdf.css');
 
+/* Set bleed/crop marks */
 @page {
-  marks: crop;
-  -ah-printer-marks-line-color: cmyk(0%, 0%, 0%, 100%);
+	bleed: 9pt;
+	marks: crop;
+	-ah-printer-marks-line-color: rgb-icc(#Grayscale, 0);
 }
 
 /* Suppress cover image */
