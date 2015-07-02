@@ -427,15 +427,19 @@ td pre.programlisting, td pre.screen, td pre.literallayout, td code { /* allow c
 /* ---------------------- figures ---------------------- */
 
 div.figure { /* figure containers */
-  text-indent: 0;
-  margin: 0;
-  padding: 0;
+  margin: 30px 0px;
+  padding: 0 40px 0 0;
   border-top: 1px solid #888;
   border-bottom: 1px solid #888;
   /*both of these elements are to avoid page breaks inside*/
   display: inline-block;
   page-break-inside: avoid;
 }
+
+figure {
+  text-indent: 0;
+  margin: 0;
+  padding: 0;}
 
 
 div.figure img { /* figure images */
