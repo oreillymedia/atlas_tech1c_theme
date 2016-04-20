@@ -571,6 +571,7 @@ pre { /* code blocks */
   -webkit-hyphens: none;
   hyphens: none;
   adobe-hyphenate: none;
+  overflow-wrap: break-word;
 }
 
 code { /* inline code */
@@ -578,6 +579,7 @@ code { /* inline code */
   -webkit-hyphens: none;
   hyphens: none;
   adobe-hyphenate: none;
+  overflow-wrap: break-word;
 }
 
 table pre { /* code blocks within tables */
