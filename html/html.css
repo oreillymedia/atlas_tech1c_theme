@@ -440,8 +440,8 @@ div[data-type="warning"] { /* admonition containers */
   page-break-inside: avoid; /* avoid breaking admonitions across pages */
 }
 
-div[data-type="note"] h1, 
-div[data-type="warning"] h1 { /* admonition titles */
+div[data-type="note"] h6, 
+div[data-type="warning"] h6 { /* admonition titles */
   color: #000;
   font-family: sans-serif;
   font-weight: bold;
